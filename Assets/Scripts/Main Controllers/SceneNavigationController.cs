@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneNavigationController : MonoBehaviour
 {
+    //ENUMS
+    #region ENUMS
     public enum eSceneName
     {
         TitleScreen,
@@ -12,29 +14,58 @@ public class SceneNavigationController : MonoBehaviour
         Credits,
         RaindropsGame
     }
+    #endregion
+    
+    //DATA
+    #region DATA
+
+    ///SERIALIZED LIST OF ALL STAGES
+    [SerializeField] private List<StageDataSO> StageData = new();
     
     
+    ///DICTIONARY FOR RUNTIME ACCESS
+    private Dictionary<eSceneName, StageDataSO> StageSceneDictionary = new();
+    
+    
+    /// HAS LOADED
+    private bool hasLoaded = false;
+    public bool HasLoaded { get { return hasLoaded; } }
+
+    #endregion
+    
+    
+    
+    
+    
+
+    
+    //LIFECYCLE FUNCTIONS
     #region LIFECYCLE FUNCTIONS
     
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+        foreach (StageDataSO s in StageData)
+        {
+            StageSceneDictionary.Add(s.StageID, s);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+        hasLoaded = true;
     }
     
     #endregion
-
+    
+    
+    
     #region FUNCTIONALITIES
     public void LoadScene(eSceneName targetScene)
     {
+        string intendedScene = StageSceneDictionary[targetScene].AssociatedSceneName;
         
-        
+        if (!string.IsNullOrEmpty(intendedScene)) 
+            SceneManager.LoadScene(intendedScene);
+        else 
+            Debug.Log("Invalid Target Scene: " + targetScene);
     }
     
     #endregion
