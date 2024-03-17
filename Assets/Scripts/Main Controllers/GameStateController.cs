@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameStateController : MonoBehaviour
 {
+    //TODO: THIS MIGHT NOT BE NEEDED AT ALL.
+
     // Start is called before the first frame update
     void Start()
     {
