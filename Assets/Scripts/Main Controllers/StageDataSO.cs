@@ -16,7 +16,4 @@ public class StageDataSO : ScriptableObject
     public SceneNavigationController.eSceneName StageID { get { return stageID; } }
     
     #endregion
-
-
-
 }
