@@ -1,0 +1,22 @@
+
+Game developed by ABYDevelopment (Andrea Buzzi)
+
+
+Credits for external assets
+
+
+IMAGES
+
+Raindrop Sprite: https://www.pngaaa.com/detail/1298618
+
+TEMP Splash: https://opengameart.org/content/splash-effect-32x32
+TEMP Splash: https://opengameart.org/content/water-splash
+TEMP Splash: https://opengameart.org/content/splash
+
+
+
+AUDIO
+
+
+
+
