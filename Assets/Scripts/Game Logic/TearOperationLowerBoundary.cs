@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class TearOperationLowerBoundary : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    void OnTriggerEnter2D(Collider2D coll)
     {
+        Debug.Log("Collision");
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
