@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class TearOperation : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class TearOperation : MonoBehaviour
 
     private float numberOneValue = 5;
     private float numberTwoValue = 4;
+
+    private float result = 0;
+
 
 
     private Dictionary<EOperation, string> dictionaryEOP = new Dictionary<EOperation, string>
@@ -72,6 +76,31 @@ public class TearOperation : MonoBehaviour
         textNumberOne.text = numberOneValue.ToString();
         textNumberTwo.text = numberTwoValue.ToString();
         textOperation.text = dictionaryEOP[operation];
+    }
+
+    private void CalcResult()
+    {
+        switch (operation)
+        {
+            case EOperation.SUM:
+                result = numberOneValue + numberTwoValue;
+                break;
+            case EOperation.DIFFERENCE:
+                result = numberOneValue - numberTwoValue;
+                break;
+            case EOperation.MULTIPLICATION:
+                result = numberOneValue * numberTwoValue;
+                break;
+            case EOperation.DIVISION:
+                result = numberOneValue / numberTwoValue;
+                break;
+            default:
+                Debug.LogError(this.gameObject.name + " has no valid operation value.");
+                result = 0;
+                break;
+        }
+        //TODO: DISMISS DEBUG
+        Debug.Log(this.gameObject.name + " - Result: " + result);
     }
 
 
