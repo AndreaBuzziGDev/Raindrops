@@ -58,7 +58,7 @@ public class TearOperation : MonoBehaviour
         
         //SETS THE VISUAL CONTENT OF THE PREFAB
         SetContent();
-        
+        CalcResult();
     }
 
     // Update is called once per frame
