@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6751d39dbeb2f7478b97c8494e240f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftEnd: {x: -8, y: 6, z: 0}
+  rightEnd: {x: 8, y: 6, z: 0}
 --- !u!1 &4206601078946618828
 GameObject:
   m_ObjectHideFlags: 0
