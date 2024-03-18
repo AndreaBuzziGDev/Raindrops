@@ -54,7 +54,7 @@ public class TearOperation : MonoBehaviour
     void Start()
     {
         //SET POSITION TO STANDARD POSITION
-        //TODO: MOVE TO APPROPRIATE POSITION
+        transform.position = TearOperationSpawner.Instance.GetRandomPosition();
         
         //SETS THE VISUAL CONTENT OF THE PREFAB
         SetContent();

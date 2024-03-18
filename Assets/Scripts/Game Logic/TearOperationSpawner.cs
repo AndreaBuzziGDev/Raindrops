@@ -45,7 +45,7 @@ public class TearOperationSpawner : MonoSingleton<TearOperationSpawner>
     //TODO: SOLVE POTENTIAL OVERLOADING ISSUES BY USING AN OPTIONAL PARAMETER
     public Vector3 GetRandomPosition()
     {
-        float myRandom = UnityEngine.Random.Range(0, 1);
+        float myRandom = UnityEngine.Random.Range(0.0f, 1.0f);
         return Vector3.Lerp(leftEnd, rightEnd, myRandom);
     }
 
