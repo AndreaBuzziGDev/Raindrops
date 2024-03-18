@@ -19,12 +19,6 @@ public class TearOperationSpawner : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     //GIZMO DRAWING
     void OnDrawGizmos()
     {
