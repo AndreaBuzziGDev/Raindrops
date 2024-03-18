@@ -54,6 +54,8 @@ public class TearOperation : MonoBehaviour
     void Start()
     {
         //SET POSITION TO STANDARD POSITION
+        //TODO: MOVE THE SETTING OF THE TRANSFORM STARTING POSITION ELSEWHERE, POSSIBLY IN THE SPAWNER ITSELF
+        //TODO: THE SPAWNER SHOULD ALSO INSTANTIATE PREFABS
         transform.position = TearOperationSpawner.Instance.GetRandomPosition();
         
         //SETS THE VISUAL CONTENT OF THE PREFAB
