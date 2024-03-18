@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TearOperationSpawner : MonoBehaviour
+public class TearOperationSpawner : MonoSingleton<TearOperationSpawner>
 {
     //DATA
     [SerializeField] Vector3 leftEnd = new Vector3(-8, 6, 0);
@@ -36,6 +37,17 @@ public class TearOperationSpawner : MonoBehaviour
 
     }
 
+
+
+
+
+    //UTILITIES
+    //TODO: SOLVE POTENTIAL OVERLOADING ISSUES BY USING AN OPTIONAL PARAMETER
+    public Vector3 GetRandomPosition()
+    {
+        float myRandom = UnityEngine.Random.Range(0, 1);
+        return Vector3.Lerp(leftEnd, rightEnd, myRandom);
+    }
 
 
 
