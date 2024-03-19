@@ -31,7 +31,13 @@ public class TearController : MonoSingleton<TearController>
     //EVENT HANDLING
     public void HandleTearLost(object sender, TearLostEventArgs e)
     {
+        /*
         Debug.Log("Tear Lost Logic on TearController");
+        Debug.Log("Sender: " + sender);
+        */
+
+        //
+        
 
     }
 
