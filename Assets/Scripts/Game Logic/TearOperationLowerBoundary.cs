@@ -1,20 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TearOperationLowerBoundary : MonoBehaviour
 {
+    //EVENTS
+    public static event EventHandler<TearLostEventArgs> TearLost;
+
+
+    //DATA
     
+
+
+    //LIFECYCLE FUNCTIONS
+
+
+    //FUNCTIONALITIES
     void OnTriggerEnter2D(Collider2D coll)
     {
         TearOperation tear = coll.gameObject?.GetComponent<TearOperation>();
         if(tear != null)
         {
             Debug.Log("Collision");
-            //TODO: DESTROY TEAR
-            //TODO: EVENTUALLY HANDLE THE REST OF THE GAME LOGIC
-            //TODO: SHOULD REALLY CAST AN EVENT AND LET SOMETHING ELSE HANDLE IT
+
+            TearLostEventArgs myTearLostEvent = new TearLostEventArgs(tear);
+            OnTearLost(myTearLostEvent);
+            //TODO: DESTROY TEAR - NB: MOVED IN APPROPRIATE SCRIPT
+            //TODO: EVENTUALLY HANDLE THE REST OF THE GAME LOGIC - NB: MOVED IN APPROPRIATE SCRIPT
         }
     }
+
+
+    
+    //EVENT-FIRING METHOD
+    private void OnTearLost(TearLostEventArgs myEventArg) => TearLost?.Invoke(this, myEventArg);
 
 }
