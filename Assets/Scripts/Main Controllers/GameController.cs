@@ -54,6 +54,7 @@ public class GameController : MonoSingleton<GameController>
             case EGameState.Start:
                 //RESERVED FOR INITIALIZATION
                 //TODO: IMPLEMENT
+                
                 SetState(EGameState.Playing);
                 break;
 
