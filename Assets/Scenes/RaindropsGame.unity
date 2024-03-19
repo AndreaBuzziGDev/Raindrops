@@ -263,6 +263,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6260083583490217602, guid: d3e85f92be613944799e1374042332fd, type: 3}
+      propertyPath: tearOpPrefab
+      value: 
+      objectReference: {fileID: 1997937786787309842, guid: fe5bb8dde11caac439e7ec49186751eb, type: 3}
     - target: {fileID: 6673436770007888764, guid: d3e85f92be613944799e1374042332fd, type: 3}
       propertyPath: m_Name
       value: GameController
