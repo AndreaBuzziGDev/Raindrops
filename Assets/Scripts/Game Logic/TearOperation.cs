@@ -66,7 +66,7 @@ public class TearOperation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = transform.position + new Vector3(0, -(tearSpeed * Time.fixedDeltaTime), 0);
+        transform.position = transform.position + Vector3.down * tearSpeed * Time.fixedDeltaTime;
     }
 
 
