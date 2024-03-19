@@ -33,6 +33,9 @@ public class TearOperationLowerBoundary : MonoBehaviour
     }
 
 
+    //TODO: DRAW A GIZMO ON THE SCREEN FOR DEBUG REASONS, SO THAT THE COLLIDER IS VISIBLE IN THE EDITOR AND ONLY IN THE EDITOR
+
+
     
     //EVENT-FIRING METHOD
     private void OnTearLost(TearLostEventArgs myEventArg) => TearLost?.Invoke(this, myEventArg);
