@@ -6,6 +6,7 @@ using System;
 public class TearOperationLowerBoundary : MonoBehaviour
 {
     //EVENTS
+    //TODO: DEEPEN THE STUDY FOR EVENT DELEGATES
     public static event EventHandler<TearLostEventArgs> TearLost;
 
 
