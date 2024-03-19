@@ -45,9 +45,36 @@ public class TearController : MonoSingleton<TearController>
 
 
     //FUNCTIONALITIES
+    //TODO: MIGHT HAVE SENSE TO RETURN THE SPAWNED TEAR
+    //TODO: MIGHT NEED SIGNATURE
+    private void SpawnTear()
+    {
+        //TODO: MIGHT NEED TO PICK FROM OBJECT POOL
+        
+
+    }
 
 
+    private void DestroyTear(TearOperation toDestroy)
+    {
+        Vector3 tearPosition = toDestroy.transform.position;
+        Debug.Log("Destroy Tear at Position: " + tearPosition);
+        
+        
+        //TODO: MIGHT NEED TO COLLECT DATA ON THE DESTROYED OBJECT FOR POOLING PURPOSES
 
+
+        //TODO: ENQUEUE THE SPAWN
+        //TODO: SPAWN NEW TEAR OPERATION
+        
+        
+        
+        //TODO: HANDLE AN EFFECT FOR TEAR DESTRUCTION (SPRITE ANIMATION, PARTICLE EFFECT...)
+        
+        
+        //FINALLY DESTROY
+        Destroy(toDestroy);
+    }
     
     
     //UTILITIES
