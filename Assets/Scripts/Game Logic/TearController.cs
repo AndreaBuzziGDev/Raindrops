@@ -14,6 +14,7 @@ public class TearController : MonoSingleton<TearController>
     void Start()
     {
         //TODO: THIS SHOULD INITIALIZE A NUMBER OF TEAR OPERATIONS (AND POOL IT AT A LATER STAGE)
+        TearOperationLowerBoundary.TearLost += HandleTearLost;
         
     }
 
@@ -24,6 +25,23 @@ public class TearController : MonoSingleton<TearController>
         
     }
     
+
+
+
+    //EVENT HANDLING
+    public void HandleTearLost(object sender, TearLostEventArgs e)
+    {
+        Debug.Log("Tear Lost Logic on TearController");
+
+    }
+
+
+
+
+    //FUNCTIONALITIES
+
+
+
     
     
     //UTILITIES
