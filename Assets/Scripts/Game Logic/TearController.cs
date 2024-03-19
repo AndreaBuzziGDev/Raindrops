@@ -6,6 +6,14 @@ public class TearController : MonoSingleton<TearController>
 {
     //DATA
     //TODO: SHOULD CONTAIN DATA STRUCTURES FOR HANDLING POOLING AND OTHER STUFF
+    
+    
+    
+    //PREFABS
+    [SerializeField] TearOperation tearOpPrefab;
+
+
+
 
 
     //LIFECYCLE FUNCTIONS
@@ -50,7 +58,10 @@ public class TearController : MonoSingleton<TearController>
     private void SpawnTear()
     {
         //TODO: MIGHT NEED TO PICK FROM OBJECT POOL
-        
+
+        //TODO: RANDOMIZE
+        Vector3 newPosition = TearOperationSpawner.Instance.GetRandomPosition();
+        Instantiate(tearOpPrefab, newPosition, Quaternion.identity);
 
     }
 
@@ -65,15 +76,16 @@ public class TearController : MonoSingleton<TearController>
 
 
         //TODO: ENQUEUE THE SPAWN
-        //TODO: SPAWN NEW TEAR OPERATION
-        
-        
+
         
         //TODO: HANDLE AN EFFECT FOR TEAR DESTRUCTION (SPRITE ANIMATION, PARTICLE EFFECT...)
         
         
-        //FINALLY DESTROY
+        //DESTROY
         Destroy(toDestroy);
+
+        //SPAWN NEW
+        SpawnTear();
     }
     
     
