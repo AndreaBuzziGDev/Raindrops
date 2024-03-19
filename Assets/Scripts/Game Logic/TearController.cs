@@ -83,7 +83,7 @@ public class TearController : MonoSingleton<TearController>
         
         
         //DESTROY
-        Destroy(toDestroy);
+        Destroy(toDestroy.gameObject);
 
         //SPAWN NEW
         SpawnTear();
