@@ -45,7 +45,7 @@ public class TearController : MonoSingleton<TearController>
         */
 
         //
-        
+        DestroyTear(e.LostTear);
 
     }
 
@@ -71,6 +71,7 @@ public class TearController : MonoSingleton<TearController>
         Vector3 tearPosition = toDestroy.transform.position;
         Debug.Log("Destroy Tear at Position: " + tearPosition);
         
+        //TODO: PART OF THIS LOGIC PROBABLY CAN BE SIMPLIFIED AND METHOD MADE MORE API-FIED
         
         //TODO: MIGHT NEED TO COLLECT DATA ON THE DESTROYED OBJECT FOR POOLING PURPOSES
 
