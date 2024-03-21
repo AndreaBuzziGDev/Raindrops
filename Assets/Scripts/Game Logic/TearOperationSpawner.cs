@@ -15,15 +15,6 @@ public class TearOperationSpawner : MonoSingleton<TearOperationSpawner>
     //LIFECYCLE FUNCTIONS
     //...
 
-    //GIZMO DRAWING
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(leftEnd, rightEnd);
-
-    }
-
-
 
 
 
@@ -36,5 +27,13 @@ public class TearOperationSpawner : MonoSingleton<TearOperationSpawner>
     }
 
 
+
+    //GIZMO DRAWING
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(leftEnd, rightEnd);
+
+    }
 
 }
