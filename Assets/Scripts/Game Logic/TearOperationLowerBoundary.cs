@@ -33,11 +33,20 @@ public class TearOperationLowerBoundary : MonoBehaviour
     }
 
 
-    //TODO: DRAW A GIZMO ON THE SCREEN FOR DEBUG REASONS, SO THAT THE COLLIDER IS VISIBLE IN THE EDITOR AND ONLY IN THE EDITOR
 
+
+    //TODO: DRAW A GIZMO ON THE SCREEN FOR DEBUG REASONS, SO THAT THE COLLIDER IS VISIBLE IN THE EDITOR AND ONLY IN THE EDITOR
+    //GIZMO DRAWING
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, transform.localScale);
+
+    }
 
     
     //EVENT-FIRING METHOD
     private void OnTearLost(TearLostEventArgs myEventArg) => TearLost?.Invoke(this, myEventArg);
+
 
 }
