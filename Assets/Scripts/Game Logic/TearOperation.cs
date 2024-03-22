@@ -76,7 +76,7 @@ public class TearOperation : MonoBehaviour
 
 
     //EVENT HANDLING
-    public void HandleTearLost(object sender, TearLostEventArgs e)
+    public void HandleResultInput(object sender, TearLostEventArgs e)
     {
         //TODO: CHECK RESULT
 
