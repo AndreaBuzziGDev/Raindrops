@@ -44,8 +44,11 @@ public class TearController : MonoSingleton<TearController>
         Debug.Log("Sender: " + sender);
         */
 
-        //
-        DestroyTear(e.LostTear);
+        //LOSS
+        if(e.EventType == TearEventArgs.EType.LOSS) DestroyTear(e.LostTear);
+
+        //SUCCESSS
+        if(e.EventType == TearEventArgs.EType.SUCCESS) SolveTear(e.LostTear);
 
     }
 
@@ -89,6 +92,20 @@ public class TearController : MonoSingleton<TearController>
         SpawnTear();
     }
     
+
+    private void SolveTear(TearOperation solvedTear)
+    {
+        //TODO: SHOULD PROBABLY CALL GameController TO HANDLE SCORE AND STUFF?
+        Debug.Log("Solved Tear: " + solvedTear.gameObject.name);
+
+        //TODO: HANDLE AN EFFECT FOR TEAR SOLUTION (SPRITE ANIMATION, PARTICLE EFFECT...)
+
+        //DESTROY
+        Destroy(solvedTear.gameObject);
+
+        //SPAWN NEW
+        SpawnTear();
+    }
     
     //UTILITIES
     
