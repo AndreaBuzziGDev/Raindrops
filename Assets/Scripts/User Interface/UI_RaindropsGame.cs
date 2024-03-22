@@ -2,15 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class UI_RaindropsGame : MonoBehaviour
 {
+    //EVENTS
+    public static event EventHandler<ResultInputEventArgs> ResultInput;
+
+
     //DATA
 
 
 
     //PREFAB REFERENCES
-    [SerializeField] private TMP_Text inputText;
+    [SerializeField] private TMP_InputField inputField;
 
 
 
@@ -20,17 +25,7 @@ public class UI_RaindropsGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log("Value is: " + inputText.text);
-        //TODO: HANDLE EVENT
-
-        //TODO: RESET TEXT FIELD
-        
+        inputField.text = "0";
     }
 
 
@@ -46,7 +41,13 @@ public class UI_RaindropsGame : MonoBehaviour
     //UI - BUTTON HANDLING
     public void HandleInputButton()
     {
-        Debug.Log("Button has been pressed.");
+        int.TryParse(inputField.text, out int testInt);//NB: INT WAS INLINE-DECLARED
+
+        ResultInputEventArgs myResultInputEvent = new(testInt);
+        OnTearLost(myResultInputEvent);
+
+        //RESET TEXT FIELD
+        inputField.text = "0";
     }
 
 
@@ -58,5 +59,9 @@ public class UI_RaindropsGame : MonoBehaviour
 
 
 
+
+    
+    //EVENT-FIRING METHOD
+    private void OnTearLost(ResultInputEventArgs myEventArg) => ResultInput?.Invoke(this, myEventArg);
 
 }
