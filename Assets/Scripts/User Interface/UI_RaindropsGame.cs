@@ -26,6 +26,10 @@ public class UI_RaindropsGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log("Value is: " + inputText.text);
+        //TODO: HANDLE EVENT
+
+        //TODO: RESET TEXT FIELD
         
     }
 
@@ -34,6 +38,17 @@ public class UI_RaindropsGame : MonoBehaviour
 
 
     //FUNCTIONALITIES
+
+
+
+
+
+    //UI - BUTTON HANDLING
+    public void HandleInputButton()
+    {
+        Debug.Log("Button has been pressed.");
+    }
+
 
 
 
