@@ -53,6 +53,9 @@ public class TearOperation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //LISTEN TO EVENTS
+        UI_RaindropsGame.ResultInput += HandleResultInput;
+
         //SET POSITION TO STANDARD POSITION
         //TODO: MOVE THE SETTING OF THE TRANSFORM STARTING POSITION ELSEWHERE, POSSIBLY IN THE SPAWNER ITSELF
         //TODO: THE SPAWNER SHOULD ALSO INSTANTIATE PREFABS
@@ -68,7 +71,19 @@ public class TearOperation : MonoBehaviour
     {
         transform.position = transform.position + tearSpeed * Time.fixedDeltaTime * Vector3.down;
     }
+    
 
+
+
+    //EVENT HANDLING
+    public void HandleTearLost(object sender, TearLostEventArgs e)
+    {
+        //TODO: CHECK RESULT
+
+        //IF RESULT CORRECT = FIRE SOLUTION EVENT
+
+    }
+    
 
 
 
