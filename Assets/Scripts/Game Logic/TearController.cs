@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class TearController : MonoSingleton<TearController>
 {
@@ -22,7 +23,8 @@ public class TearController : MonoSingleton<TearController>
     void Start()
     {
         //TODO: THIS SHOULD INITIALIZE A NUMBER OF TEAR OPERATIONS (AND POOL IT AT A LATER STAGE)
-        TearOperationLowerBoundary.TearLost += HandleTearLost;
+        TearOperationLowerBoundary.TearLost += HandleTearEvent;
+        TearOperation.TearSolved += HandleTearEvent;
         
     }
 
@@ -37,7 +39,7 @@ public class TearController : MonoSingleton<TearController>
 
 
     //EVENT HANDLING
-    public void HandleTearLost(object sender, TearEventArgs e)
+    public void HandleTearEvent(object sender, TearEventArgs e)
     {
         /*
         Debug.Log("Tear Lost Logic on TearController");
@@ -109,5 +111,6 @@ public class TearController : MonoSingleton<TearController>
     
     //UTILITIES
     
-    
+
+
 }

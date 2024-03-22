@@ -17,6 +17,10 @@ public class TearOperation : MonoBehaviour
     }
 
 
+    //EVENTS
+    public static event EventHandler<TearEventArgs> TearSolved;
+
+
     //DATA
     [SerializeField] private float tearSpeed = 1.0f;
     [SerializeField] private EOperation operation = EOperation.SUM;//TODO: THIS DOES NOT NEED TO BE A SERIALIZED FIELD AND SHOULD NOT BE.
@@ -78,10 +82,12 @@ public class TearOperation : MonoBehaviour
     //EVENT HANDLING
     public void HandleResultInput(object sender, ResultInputEventArgs e)
     {
-        //TODO: CHECK RESULT
-
         //IF RESULT CORRECT = FIRE SOLUTION EVENT
-
+        if(e.InputValue == this.result)
+        {
+            TearEventArgs myTearLostEvent = new(this, TearEventArgs.EType.SUCCESS);
+            OnTearSolved(myTearLostEvent);
+        }
     }
     
 
@@ -119,6 +125,12 @@ public class TearOperation : MonoBehaviour
         //TODO: DISMISS DEBUG
         Debug.Log(this.gameObject.name + " - Result: " + result);
     }
+    
+
+    
+    //EVENT-FIRING METHOD
+    private void OnTearSolved(TearEventArgs myEventArg) => TearSolved?.Invoke(this, myEventArg);
 
 
+    
 }
