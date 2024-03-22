@@ -7,7 +7,7 @@ public class TearOperationLowerBoundary : MonoBehaviour
 {
     //EVENTS
     //TODO: DEEPEN THE STUDY FOR EVENT DELEGATES
-    public static event EventHandler<TearLostEventArgs> TearLost;
+    public static event EventHandler<TearEventArgs> TearLost;
 
 
     //DATA
@@ -25,7 +25,7 @@ public class TearOperationLowerBoundary : MonoBehaviour
         {
             Debug.Log("Collision");
 
-            TearLostEventArgs myTearLostEvent = new TearLostEventArgs(tear);
+            TearEventArgs myTearLostEvent = new TearEventArgs(tear);
             OnTearLost(myTearLostEvent);
             //TODO: DESTROY TEAR - NB: MOVED IN APPROPRIATE SCRIPT
             //TODO: EVENTUALLY HANDLE THE REST OF THE GAME LOGIC - NB: MOVED IN APPROPRIATE SCRIPT
@@ -46,7 +46,7 @@ public class TearOperationLowerBoundary : MonoBehaviour
 
     
     //EVENT-FIRING METHOD
-    private void OnTearLost(TearLostEventArgs myEventArg) => TearLost?.Invoke(this, myEventArg);
+    private void OnTearLost(TearEventArgs myEventArg) => TearLost?.Invoke(this, myEventArg);
 
 
 }
