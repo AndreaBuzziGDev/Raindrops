@@ -75,6 +75,12 @@ public class TearOperation : MonoBehaviour
     {
         transform.position = transform.position + tearSpeed * Time.fixedDeltaTime * Vector3.down;
     }
+
+    void OnDestroy()
+    {
+        //UN-LISTEN EVENTS
+        UI_RaindropsGame.ResultInput -= HandleResultInput;
+    }
     
 
 
