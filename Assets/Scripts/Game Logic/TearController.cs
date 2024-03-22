@@ -34,6 +34,13 @@ public class TearController : MonoSingleton<TearController>
         //TODO: THIS SHOULD HANDLE POOLING OF OBJECTS
         
     }
+
+    void OnDestroy()
+    {
+        //UN-LISTEN EVENTS
+        TearOperationLowerBoundary.TearLost -= HandleTearEvent;
+        TearOperation.TearSolved -= HandleTearEvent;
+    }
     
 
 
