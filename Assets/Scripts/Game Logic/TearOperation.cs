@@ -32,6 +32,7 @@ public class TearOperation : MonoBehaviour
 
 
 
+    //TODO: USE TearOperationData DICTIONARY INSTEAD
     private Dictionary<EOperation, string> dictionaryEOP = new Dictionary<EOperation, string>
     {
         {EOperation.SUM, "+"},
@@ -106,7 +107,8 @@ public class TearOperation : MonoBehaviour
         textNumberTwo.text = numberTwoValue.ToString();
         textOperation.text = dictionaryEOP[operation];
     }
-
+    
+    //TODO: DISMISS
     private void CalcResult()
     {
         switch (operation)
