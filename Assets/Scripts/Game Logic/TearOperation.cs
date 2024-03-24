@@ -34,8 +34,6 @@ public class TearOperation : MonoBehaviour
         UI_RaindropsGame.ResultInput += HandleResultInput;
 
         //SET POSITION TO STANDARD POSITION
-        //TODO: MOVE THE SETTING OF THE TRANSFORM STARTING POSITION ELSEWHERE, POSSIBLY IN THE SPAWNER ITSELF
-        //TODO: THE SPAWNER SHOULD ALSO INSTANTIATE PREFABS
         transform.position = TearOperationSpawner.Instance.GetRandomPosition();
 
         //SETTING DATA
@@ -49,6 +47,7 @@ public class TearOperation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        //TODO: A TEARCONTROLLER % BONUS MULTIPLIER
         transform.position = transform.position + tearSpeed * Time.fixedDeltaTime * Vector3.down;
     }
 
