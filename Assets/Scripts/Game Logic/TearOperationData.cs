@@ -26,7 +26,7 @@ public class TearOperationData
     public int NumberOneValue { get {return numberOneValue; } }
     public int NumberTwoValue { get {return numberTwoValue; } }
 
-    public float Result {
+    public int Result {
         get {
             switch (operation)
             {
