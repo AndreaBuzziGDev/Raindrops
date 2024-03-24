@@ -14,6 +14,9 @@ public class TearOperation : MonoBehaviour
     //DATA
     [SerializeField] private float tearSpeed = 1.0f;
     private TearOperationData myData;
+    
+    //TODO: INTRODUCE A DEBUG MODE THAT ALLOWS MANUAL OVERRIDE OF VALUES, OPERATIONS ETC
+    
 
 
 
