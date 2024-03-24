@@ -16,12 +16,17 @@ public class TearOperationData
 
     //DATA
     private EOperation operation;
-    
     private int numberOneValue;
     private int numberTwoValue;
 
 
-    private float Result {
+
+    //DATA GETTERS
+    public EOperation Operation { get {return operation; } }
+    public int NumberOneValue { get {return numberOneValue; } }
+    public int NumberTwoValue { get {return numberTwoValue; } }
+
+    public float Result {
         get {
             switch (operation)
             {
@@ -63,14 +68,14 @@ public class TearOperationData
 
 
     //RANDOMIZATION
-    public EOperation GetRandomOperation()
+    public static EOperation GetRandomOperation()
     {
         int randomInt = UnityEngine.Random.Range(0, EOperation.GetNames(typeof(EOperation)).Length);
         return (EOperation) randomInt;
     }
     
     //TODO: THIS MIGHT BE BETTER IF IMPLEMENTED IN ANOTHER WAY (EG: IN CONSTRUCTOR)
-    public int GetRandomNumberOne(EOperation operation = EOperation.SUM)
+    public static int GetRandomNumberOne(EOperation operation = EOperation.SUM)
     {
         switch (operation)
             {
@@ -89,7 +94,7 @@ public class TearOperationData
     }
 
     //TODO: IMPROVE AND EXPAND UPON
-    public int GetRandomNumberTwo(EOperation operation = EOperation.SUM)
+    public static int GetRandomNumberTwo(EOperation operation = EOperation.SUM)
     {
         return GetRandomNumberOne(operation);
     }
