@@ -7,41 +7,13 @@ using System;
 
 public class TearOperation : MonoBehaviour
 {
-    //ENUMS
-    public enum EOperation
-    {
-        SUM,
-        DIFFERENCE,
-        MULTIPLICATION,
-        DIVISION
-    }
-
-
     //EVENTS
     public static event EventHandler<TearEventArgs> TearSolved;
 
 
     //DATA
     [SerializeField] private float tearSpeed = 1.0f;
-    [SerializeField] private EOperation operation = EOperation.SUM;//TODO: THIS DOES NOT NEED TO BE A SERIALIZED FIELD AND SHOULD NOT BE.
-
-    private float numberOneValue = 5;
-    private float numberTwoValue = 4;
-
-    private float result = 0;
-
-
-
-    //TODO: USE TearOperationData DICTIONARY INSTEAD
-    private Dictionary<EOperation, string> dictionaryEOP = new Dictionary<EOperation, string>
-    {
-        {EOperation.SUM, "+"},
-        {EOperation.DIFFERENCE, "-"},
-        {EOperation.MULTIPLICATION, "x"},
-        {EOperation.DIVISION, "/"}
-    };
-
-
+    private TearOperationData myData;
 
 
 
@@ -65,10 +37,13 @@ public class TearOperation : MonoBehaviour
         //TODO: MOVE THE SETTING OF THE TRANSFORM STARTING POSITION ELSEWHERE, POSSIBLY IN THE SPAWNER ITSELF
         //TODO: THE SPAWNER SHOULD ALSO INSTANTIATE PREFABS
         transform.position = TearOperationSpawner.Instance.GetRandomPosition();
+
+        //SETTING DATA
+        TearOperationData.EOperation randomOp = TearOperationData.GetRandomOperation();
+        myData = new TearOperationData(TearOperationData.GetRandomNumberOne(randomOp), TearOperationData.GetRandomNumberOne(randomOp), randomOp);
         
         //SETS THE VISUAL CONTENT OF THE PREFAB
         SetContent();
-        CalcResult();
     }
 
     // Update is called once per frame
@@ -90,55 +65,28 @@ public class TearOperation : MonoBehaviour
     public void HandleResultInput(object sender, ResultInputEventArgs e)
     {
         //IF RESULT CORRECT = FIRE SOLUTION EVENT
-        if(e.InputValue == this.result)
+        if(e.InputValue == this.myData.Result)
         {
             TearEventArgs myTearLostEvent = new(this, TearEventArgs.EType.SUCCESS);
             OnTearSolved(myTearLostEvent);
         }
     }
-    
+
 
 
 
     //FUNCTIONALITIES
     private void SetContent()
     {
-        textNumberOne.text = numberOneValue.ToString();
-        textNumberTwo.text = numberTwoValue.ToString();
-        textOperation.text = dictionaryEOP[operation];
+        textNumberOne.text = myData.NumberOneValue.ToString();
+        textNumberTwo.text = myData.NumberTwoValue.ToString();
+        textOperation.text = TearOperationData.dictionaryEOP[myData.Operation];
     }
-    
-    //TODO: DISMISS
-    private void CalcResult()
-    {
-        switch (operation)
-        {
-            case EOperation.SUM:
-                result = numberOneValue + numberTwoValue;
-                break;
-            case EOperation.DIFFERENCE:
-                result = numberOneValue - numberTwoValue;
-                break;
-            case EOperation.MULTIPLICATION:
-                result = numberOneValue * numberTwoValue;
-                break;
-            case EOperation.DIVISION:
-                result = numberOneValue / numberTwoValue;
-                break;
-            default:
-                Debug.LogError(this.gameObject.name + " has no valid operation value.");
-                result = 0;
-                break;
-        }
-        //TODO: DISMISS DEBUG
-        Debug.Log(this.gameObject.name + " - Result: " + result);
-    }
-    
 
-    
+
+
+
     //EVENT-FIRING METHOD
     private void OnTearSolved(TearEventArgs myEventArg) => TearSolved?.Invoke(this, myEventArg);
 
-
-    
 }
