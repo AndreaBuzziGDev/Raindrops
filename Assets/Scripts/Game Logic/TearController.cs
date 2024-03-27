@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class TearController : MonoSingleton<TearController>
 {
@@ -16,6 +17,12 @@ public class TearController : MonoSingleton<TearController>
 
     //GAMEPLAY STATS
     int concurrentItems;
+
+
+    //DATA METHODS
+    public bool IsMaxConcurrentItems { get { return maxConcurrentItems <= concurrentItems; } }
+
+
 
     
     
@@ -36,10 +43,10 @@ public class TearController : MonoSingleton<TearController>
         TearOperation.TearSolved += HandleTearEvent;
 
         //INIZIALIZE SCENE
-        //TODO: SPAWN THE INITIAL AMOUNT OF TEAR OPERATIONS
+        List<TearOperation> initialTears = FindObjectsOfType<TearOperation>().ToList();
+        concurrentItems = initialTears.Count;
 
-
-        //TODO: THIS SHOULD INITIALIZE A NUMBER OF TEAR OPERATIONS (AND POOL IT AT A LATER STAGE)
+        //TODO: THIS SHOULD START WITH POOLED OPERATIONS
         
     }
 
@@ -49,6 +56,15 @@ public class TearController : MonoSingleton<TearController>
         //TODO: THIS SHOULD HANDLE POOLING OF OBJECTS
         
         //TODO: THIS SHOULD HANDLE INSTANTIATION OF NEW OBJECTS
+        if(!IsMaxConcurrentItems)
+        {
+            int spawnedItemsIteration = 0;
+            while (spawnedItemsIteration <= maxItemsPerSpawnIteration)
+            {
+                SpawnTear();
+                spawnedItemsIteration++;
+            }
+        }
         
     }
 
@@ -91,7 +107,7 @@ public class TearController : MonoSingleton<TearController>
         //TODO: RANDOMIZE
         Vector3 newPosition = TearOperationSpawner.Instance.GetRandomPosition();
         Instantiate(tearOpPrefab, newPosition, Quaternion.identity);
-
+        concurrentItems++;
     }
 
     //TODO: BOTH SOLVE AND DESTROY SHOULD NOT INSTANTIATE ONE IMMEDIATELY BUT RATHER QUEUE AN INSTANTIATION IN THE POOLER
@@ -113,9 +129,7 @@ public class TearController : MonoSingleton<TearController>
         
         //DESTROY
         Destroy(toDestroy.gameObject);
-
-        //SPAWN NEW
-        SpawnTear();
+        concurrentItems--;
     }
     
 
@@ -128,9 +142,7 @@ public class TearController : MonoSingleton<TearController>
 
         //DESTROY
         Destroy(solvedTear.gameObject);
-
-        //SPAWN NEW
-        SpawnTear();
+        concurrentItems--;
     }
     
     //UTILITIES
