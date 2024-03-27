@@ -61,7 +61,11 @@ public class TearOperation : MonoBehaviour
     void FixedUpdate()
     {
         //TODO: A TEARCONTROLLER % BONUS MULTIPLIER
-        transform.position = transform.position + tearTrueSpeed * Time.fixedDeltaTime * Vector3.down;
+        if(debugMode){
+            transform.position = transform.position + debugSpeed * Time.fixedDeltaTime * Vector3.down;
+        } else {
+            transform.position = transform.position + tearTrueSpeed * Time.fixedDeltaTime * Vector3.down;
+        }
     }
 
     void OnDestroy()
