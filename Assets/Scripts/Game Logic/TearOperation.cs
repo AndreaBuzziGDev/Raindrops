@@ -43,9 +43,6 @@ public class TearOperation : MonoBehaviour
         //LISTEN TO EVENTS
         UI_RaindropsGame.ResultInput += HandleResultInput;
 
-        //SET POSITION TO STANDARD POSITION
-        transform.position = TearOperationSpawner.Instance.GetRandomPosition();
-
         //SETTING DATA
         TearOperationData.EOperation randomOp = TearOperationData.GetRandomOperation();
         if(debugMode)
