@@ -390,7 +390,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbe50d9869dcf647bc181f87bbbeda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tearSpeed: 1
+  trueSpeed: 1
+  debugMode: 0
+  debugSpeed: 1
+  debugValueTop: 5
+  debugValueBottom: 4
+  debugOperation: 0
   textNumberOne: {fileID: 1102132641369146824}
   textNumberTwo: {fileID: 2357140497828882563}
   textOperation: {fileID: 8044804253385824097}
@@ -454,7 +459,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5561250817447848842}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
