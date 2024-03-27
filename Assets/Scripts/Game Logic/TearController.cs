@@ -8,6 +8,15 @@ public class TearController : MonoSingleton<TearController>
     //DATA
     //TODO: SHOULD CONTAIN DATA STRUCTURES FOR HANDLING POOLING AND OTHER STUFF
     
+    //GAMEPLAY SETTINGS
+    [SerializeField] int maxConcurrentItems = 3;
+    [SerializeField] int maxItemsPerSpawnIteration = 1;
+    [SerializeField] int itemsAtSpawn = 2;
+
+
+    //GAMEPLAY STATS
+    int concurrentItems;
+
     
     
     //PREFABS
@@ -22,9 +31,15 @@ public class TearController : MonoSingleton<TearController>
     // Start is called before the first frame update
     void Start()
     {
-        //TODO: THIS SHOULD INITIALIZE A NUMBER OF TEAR OPERATIONS (AND POOL IT AT A LATER STAGE)
+        //LISTEN EVENTS
         TearOperationLowerBoundary.TearLost += HandleTearEvent;
         TearOperation.TearSolved += HandleTearEvent;
+
+        //INIZIALIZE SCENE
+        //TODO: SPAWN THE INITIAL AMOUNT OF TEAR OPERATIONS
+
+
+        //TODO: THIS SHOULD INITIALIZE A NUMBER OF TEAR OPERATIONS (AND POOL IT AT A LATER STAGE)
         
     }
 
@@ -32,6 +47,8 @@ public class TearController : MonoSingleton<TearController>
     void Update()
     {
         //TODO: THIS SHOULD HANDLE POOLING OF OBJECTS
+        
+        //TODO: THIS SHOULD HANDLE INSTANTIATION OF NEW OBJECTS
         
     }
 
@@ -77,7 +94,7 @@ public class TearController : MonoSingleton<TearController>
 
     }
 
-
+    //TODO: BOTH SOLVE AND DESTROY SHOULD NOT INSTANTIATE ONE IMMEDIATELY BUT RATHER QUEUE AN INSTANTIATION IN THE POOLER
     private void DestroyTear(TearOperation toDestroy)
     {
         Vector3 tearPosition = toDestroy.transform.position;
