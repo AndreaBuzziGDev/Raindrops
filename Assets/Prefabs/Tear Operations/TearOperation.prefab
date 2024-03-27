@@ -390,8 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdbe50d9869dcf647bc181f87bbbeda4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tearSpeed: 8
-  operation: 0
+  tearSpeed: 1
   textNumberOne: {fileID: 1102132641369146824}
   textNumberTwo: {fileID: 2357140497828882563}
   textOperation: {fileID: 8044804253385824097}
