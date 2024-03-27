@@ -58,12 +58,11 @@ public class TearController : MonoSingleton<TearController>
         //TODO: THIS SHOULD HANDLE POOLING OF OBJECTS
         
         //TODO: THIS SHOULD HANDLE INSTANTIATION OF NEW OBJECTS
-        //TODO: COULD THIS BE A METHOD?
-        if(spawnIterationCooldown > 0){
+        //TODO: COULD THIS PART BE A METHOD?
+        if(spawnIterationCooldown > 0)
             spawnIterationCooldown -= Time.deltaTime;
-        }
         
-        if(!IsMaxConcurrentItems)
+        if(!IsMaxConcurrentItems && spawnIterationCooldown <= 0)
         {
             int spawnedItemsIteration = 0;
             while (spawnedItemsIteration <= maxItemsPerSpawnIteration)
@@ -72,6 +71,7 @@ public class TearController : MonoSingleton<TearController>
                 spawnedItemsIteration++;
             }
         }
+        //
         
     }
 
