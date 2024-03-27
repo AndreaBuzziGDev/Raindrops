@@ -13,10 +13,12 @@ public class TearController : MonoSingleton<TearController>
     [SerializeField] int maxConcurrentItems = 3;
     [SerializeField] int maxItemsPerSpawnIteration = 1;
     [SerializeField] int itemsAtSpawn = 2;
+    [SerializeField] float maxSpawnIterationCooldown = 1.0f;
 
 
     //GAMEPLAY STATS
     int concurrentItems;
+    float spawnIterationCooldown;
 
 
     //DATA METHODS
@@ -56,6 +58,11 @@ public class TearController : MonoSingleton<TearController>
         //TODO: THIS SHOULD HANDLE POOLING OF OBJECTS
         
         //TODO: THIS SHOULD HANDLE INSTANTIATION OF NEW OBJECTS
+        //TODO: COULD THIS BE A METHOD?
+        if(spawnIterationCooldown > 0){
+            spawnIterationCooldown -= Time.deltaTime;
+        }
+        
         if(!IsMaxConcurrentItems)
         {
             int spawnedItemsIteration = 0;
@@ -108,6 +115,7 @@ public class TearController : MonoSingleton<TearController>
         Vector3 newPosition = TearOperationSpawner.Instance.GetRandomPosition();
         Instantiate(tearOpPrefab, newPosition, Quaternion.identity);
         concurrentItems++;
+        spawnIterationCooldown = maxSpawnIterationCooldown;
     }
 
     //TODO: BOTH SOLVE AND DESTROY SHOULD NOT INSTANTIATE ONE IMMEDIATELY BUT RATHER QUEUE AN INSTANTIATION IN THE POOLER
