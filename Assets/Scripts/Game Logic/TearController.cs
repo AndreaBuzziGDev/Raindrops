@@ -65,14 +65,13 @@ public class TearController : MonoSingleton<TearController>
         else
         {
             int spawnedItemsIteration = 0;
-            while (spawnedItemsIteration <= maxItemsPerSpawnIteration && !IsMaxConcurrentItems)
+            while (spawnedItemsIteration < maxItemsPerSpawnIteration && !IsMaxConcurrentItems)
             {
                 SpawnTear();
                 spawnedItemsIteration++;
             }
         }
         //
-        Debug.Log("spawnIterationCooldown: " + spawnIterationCooldown);
         
     }
 
@@ -89,15 +88,10 @@ public class TearController : MonoSingleton<TearController>
     //EVENT HANDLING
     public void HandleTearEvent(object sender, TearEventArgs e)
     {
-        /*
-        Debug.Log("Tear Lost Logic on TearController");
-        Debug.Log("Sender: " + sender);
-        */
-
         //LOSS
         if(e.EventType == TearEventArgs.EType.LOSS) DestroyTear(e.LostTear);
 
-        //SUCCESSS
+        //SUCCESS
         if(e.EventType == TearEventArgs.EType.SUCCESS) SolveTear(e.LostTear);
 
     }
