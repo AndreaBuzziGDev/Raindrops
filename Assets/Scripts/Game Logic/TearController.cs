@@ -57,7 +57,6 @@ public class TearController : MonoSingleton<TearController>
     {
         //TODO: THIS SHOULD HANDLE POOLING OF OBJECTS
         
-        //TODO: THIS SHOULD HANDLE INSTANTIATION OF NEW OBJECTS
         //TODO: COULD THIS PART BE A METHOD?
         if(spawnIterationCooldown > 0)
             spawnIterationCooldown -= Time.deltaTime;
@@ -106,7 +105,6 @@ public class TearController : MonoSingleton<TearController>
 
     //FUNCTIONALITIES
     //TODO: MIGHT HAVE SENSE TO RETURN THE SPAWNED TEAR
-    //TODO: MIGHT NEED SIGNATURE
     private void SpawnTear()
     {
         //TODO: MIGHT NEED TO PICK FROM OBJECT POOL
