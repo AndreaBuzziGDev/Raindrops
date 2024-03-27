@@ -12,11 +12,18 @@ public class TearOperation : MonoBehaviour
 
 
     //DATA
-    [SerializeField] private float tearSpeed = 1.0f;
+    private float tearTrueSpeed = 1.0f;
     private TearOperationData myData;
-    
-    //TODO: INTRODUCE A DEBUG MODE THAT ALLOWS MANUAL OVERRIDE OF VALUES, OPERATIONS ETC
-    
+
+
+
+    //DEBUG MODE
+    [SerializeField] bool debugMode = false;
+    [SerializeField] float debugSpeed = 1.0f;
+    [SerializeField] int debugValueTop = 5;
+    [SerializeField] int debugValueBottom = 4;
+    [SerializeField] TearOperationData.EOperation debugOperation = 0;
+
 
 
 
@@ -41,7 +48,10 @@ public class TearOperation : MonoBehaviour
 
         //SETTING DATA
         TearOperationData.EOperation randomOp = TearOperationData.GetRandomOperation();
-        myData = new TearOperationData(TearOperationData.GetRandomNumberOne(randomOp), TearOperationData.GetRandomNumberOne(randomOp), randomOp);
+        if(debugMode)
+            myData = new TearOperationData(debugValueTop, debugValueBottom, debugOperation);
+        else
+            myData = new TearOperationData(TearOperationData.GetRandomNumberOne(randomOp), TearOperationData.GetRandomNumberOne(randomOp), randomOp);
         
         //SETS THE VISUAL CONTENT OF THE PREFAB
         SetContent();
@@ -51,7 +61,7 @@ public class TearOperation : MonoBehaviour
     void FixedUpdate()
     {
         //TODO: A TEARCONTROLLER % BONUS MULTIPLIER
-        transform.position = transform.position + tearSpeed * Time.fixedDeltaTime * Vector3.down;
+        transform.position = transform.position + tearTrueSpeed * Time.fixedDeltaTime * Vector3.down;
     }
 
     void OnDestroy()
