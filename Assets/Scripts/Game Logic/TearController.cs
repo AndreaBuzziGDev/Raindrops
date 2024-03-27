@@ -58,19 +58,21 @@ public class TearController : MonoSingleton<TearController>
         //TODO: THIS SHOULD HANDLE POOLING OF OBJECTS
         
         //TODO: COULD THIS PART BE A METHOD?
-        if(spawnIterationCooldown > 0)
+        if(spawnIterationCooldown > 0){
             spawnIterationCooldown -= Time.deltaTime;
-        
-        if(!IsMaxConcurrentItems && spawnIterationCooldown <= 0)
+            spawnIterationCooldown = Math.Clamp(spawnIterationCooldown, 0, maxSpawnIterationCooldown);
+        }
+        else
         {
             int spawnedItemsIteration = 0;
-            while (spawnedItemsIteration <= maxItemsPerSpawnIteration)
+            while (spawnedItemsIteration <= maxItemsPerSpawnIteration && !IsMaxConcurrentItems)
             {
                 SpawnTear();
                 spawnedItemsIteration++;
             }
         }
         //
+        Debug.Log("spawnIterationCooldown: " + spawnIterationCooldown);
         
     }
 
