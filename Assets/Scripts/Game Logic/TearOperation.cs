@@ -12,7 +12,7 @@ public class TearOperation : MonoBehaviour
 
 
     //DATA
-    private float tearTrueSpeed = 1.0f;
+    [SerializeField] float trueSpeed = 1.0f;
     private TearOperationData myData;
 
 
@@ -64,7 +64,7 @@ public class TearOperation : MonoBehaviour
         if(debugMode){
             transform.position = transform.position + debugSpeed * Time.fixedDeltaTime * Vector3.down;
         } else {
-            transform.position = transform.position + tearTrueSpeed * Time.fixedDeltaTime * Vector3.down;
+            transform.position = transform.position + trueSpeed * Time.fixedDeltaTime * Vector3.down;
         }
     }
 
