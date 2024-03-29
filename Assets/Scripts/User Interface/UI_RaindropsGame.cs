@@ -63,18 +63,7 @@ public class UI_RaindropsGame : MonoBehaviour
 
 
     //FUNCTIONALITIES
-
-
-
-    //EVENT-BASED INPUT IMPLEMENTATION
-    private void OnEnterPerformed(InputAction.CallbackContext value)
-    {
-        //TODO: SAME AS HandleInputButton
-    }
-
-
-    //UI - BUTTON HANDLING
-    public void HandleInputButton()
+    private void DoBroadcastResult()
     {
         int.TryParse(inputField.text, out int testInt);//NB: INT WAS INLINE-DECLARED
 
@@ -84,6 +73,24 @@ public class UI_RaindropsGame : MonoBehaviour
         //RESET TEXT FIELD
         inputField.text = "0";
     }
+
+
+
+
+    //INPUT EVENTS
+    //EVENT-BASED INPUT IMPLEMENTATION
+    private void OnEnterPerformed(InputAction.CallbackContext value)
+    {
+        if(GameController.Instance.IsPlaying)
+            DoBroadcastResult();
+    }
+
+
+    //UI - BUTTON HANDLING
+    public void HandleInputButton() => DoBroadcastResult();
+    
+    
+
 
 
 
