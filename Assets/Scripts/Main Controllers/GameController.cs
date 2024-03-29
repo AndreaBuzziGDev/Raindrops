@@ -20,6 +20,7 @@ public class GameController : MonoSingleton<GameController>
     private EGameState state = 0;
     public bool IsPaused { get { return this.state == EGameState.Paused; } }
     public bool IsGameOver { get { return this.state == EGameState.GameOver; } }
+    public bool IsPlaying { get { return !(IsPaused || IsGameOver); } }
 
 
 
