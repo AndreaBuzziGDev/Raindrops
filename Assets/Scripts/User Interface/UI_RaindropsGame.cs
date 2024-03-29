@@ -83,6 +83,7 @@ public class UI_RaindropsGame : MonoBehaviour
     {
         if(GameController.Instance.IsPlaying)
             DoBroadcastResult();
+        //TODO: RE-FOCUS CURSOR ON INPUT FIELD
     }
 
 
