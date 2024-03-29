@@ -1,0 +1,45 @@
+{
+    "name": "RaindropsAction",
+    "maps": [
+        {
+            "name": "Base Action Map",
+            "id": "b3878eb2-7ef4-4948-9de5-0a63f27f860e",
+            "actions": [
+                {
+                    "name": "Enter Action",
+                    "type": "Button",
+                    "id": "73d28010-ddb8-46dd-853f-cfc17e55355a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "57282d5d-51be-459c-b567-22936f38ed3e",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Enter Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2c0c40c8-9a19-4876-9b13-0b8969b17099",
+                    "path": "<Keyboard>/numpadEnter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Enter Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
