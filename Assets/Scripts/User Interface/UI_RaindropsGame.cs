@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 using System;
 
@@ -11,6 +12,10 @@ public class UI_RaindropsGame : MonoBehaviour
 
 
     //DATA
+    ///INPUT - EVENT-DRIVEN IMPLEMENTATION
+    private RaindropsAction inputPlayer = null;
+    public RaindropsAction InputPlayer { get { return inputPlayer; } }
+
 
 
 
@@ -22,12 +27,37 @@ public class UI_RaindropsGame : MonoBehaviour
 
 
     //LIFECYCLE FUNCTIONS
+    private void Awake()
+    {
+        inputPlayer = new RaindropsAction();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         inputField.text = "0";
     }
 
+    private void OnEnable()
+    {
+        //ENABLE INPUT WHEN OBJECT ENABLED
+        inputPlayer.Enable();
+
+        //ACTION SUBSCRIPTIONS
+        //ENTER
+        inputPlayer.BaseActionMap.EnterAction.performed += OnEnterPerformed;
+
+    }
+
+    private void OnDisable()
+    {
+        //ACTION UN-SUBSCRIPTIONS
+        //ESCAPE
+        inputPlayer.BaseActionMap.EnterAction.performed -= OnEnterPerformed;
+
+        //DISABLE INPUT WHEN OBJECT DISABLED
+        inputPlayer.Disable();
+    }
 
 
 
@@ -36,6 +66,11 @@ public class UI_RaindropsGame : MonoBehaviour
 
 
 
+    //EVENT-BASED INPUT IMPLEMENTATION
+    private void OnEnterPerformed(InputAction.CallbackContext value)
+    {
+        //TODO: SAME AS HandleInputButton
+    }
 
 
     //UI - BUTTON HANDLING
