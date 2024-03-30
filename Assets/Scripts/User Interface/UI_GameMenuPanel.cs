@@ -8,31 +8,11 @@ public class UI_GameMenuPanel : MonoBehaviour
 
 
     //METHODS
-    public void HandleContinue()
-    {
-        //TODO: REMOVE MENU
-        //SHOULD USE AN EVENT-BASED SYSTEM TO HANDLE SHOWING UI
+    public void HandleContinue() => GameController.Instance.SetState(GameController.EGameState.Playing);
 
-        //UNPAUSE
-        GameController.Instance.SetState(GameController.EGameState.Playing);
-    }
+    public void HandleMainMenu() => GameController.Instance.SetState(GameController.EGameState.Quitting);
 
-    public void HandleMainMenu()
-    {
-        GameController.Instance.SetState(GameController.EGameState.Quitting);
-        
-    }
+    public void HandleRestart() => GameController.Instance.SetState(GameController.EGameState.Restarting);
 
-    public void HandleRestart()
-    {
-        //TODO: RELOAD THE GAMEPLAY SCENE
-        
-    }
-
-    public void HandleQuit()
-    {
-        //TODO: QUIT APPLICATION
-        GameController.Instance.SetState(GameController.EGameState.Exiting);
-        
-    }
+    public void HandleQuit() => GameController.Instance.SetState(GameController.EGameState.Exiting);
 }
