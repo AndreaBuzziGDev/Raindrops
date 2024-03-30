@@ -11,6 +11,7 @@ public class GameController : MonoSingleton<GameController>
         Playing,
         Paused,
         GameOver,
+        Restarting,
         Quitting,
         Exiting
     }
@@ -58,32 +59,27 @@ public class GameController : MonoSingleton<GameController>
                 
                 SetState(EGameState.Playing);
                 break;
-
             case EGameState.Playing:
-                //TODO: IMPLEMENT
+                //TODO: IMPLEMENT UN-SHOWING PAUSE
 
                 break;
-
             case EGameState.Paused:
-                //TODO: IMPLEMENT
+                //TODO: IMPLEMENT SHOWING PAUSE
 
                 break;
-
             case EGameState.GameOver:
-                //TODO: IMPLEMENT
+                //TODO: IMPLEMENT SHOW UP OF GAME-OVER SCREEN
 
                 break;
-
+            case EGameState.Restarting:
+                RestartGame();
+                break;
             case EGameState.Quitting:
-                //TODO: IMPLEMENT
-
+                QuitGame();
                 break;
-
             case EGameState.Exiting:
-                //TODO: IMPLEMENT
-
+                ExitGame();
                 break;
-
         }
     }
 
@@ -97,9 +93,17 @@ public class GameController : MonoSingleton<GameController>
 
 
     //QUIT GAME (ABANDON SESSION)
+    private static void RestartGame()
+    {
+        //TODO: LOAD THIS SCENE AGAIN
+        
+    }
+
+    //QUIT GAME (ABANDON SESSION)
     private static void QuitGame()
     {
         //TODO: GO BACK TO MAIN MENU
+        //TODO: LOAD SCENE MAIN MENU
         
     }
 

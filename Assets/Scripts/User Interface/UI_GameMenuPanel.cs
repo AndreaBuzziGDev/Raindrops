@@ -10,13 +10,16 @@ public class UI_GameMenuPanel : MonoBehaviour
     //METHODS
     public void HandleContinue()
     {
-        //TODO: UNPAUSE GAME, REMOVE MENU
-        
+        //TODO: REMOVE MENU
+        //SHOULD USE AN EVENT-BASED SYSTEM TO HANDLE SHOWING UI
+
+        //UNPAUSE
+        GameController.Instance.SetState(GameController.EGameState.Playing);
     }
 
     public void HandleMainMenu()
     {
-        //TODO: LOAD SCENE MAIN MENU
+        GameController.Instance.SetState(GameController.EGameState.Quitting);
         
     }
 
@@ -29,6 +32,7 @@ public class UI_GameMenuPanel : MonoBehaviour
     public void HandleQuit()
     {
         //TODO: QUIT APPLICATION
+        GameController.Instance.SetState(GameController.EGameState.Exiting);
         
     }
 }
