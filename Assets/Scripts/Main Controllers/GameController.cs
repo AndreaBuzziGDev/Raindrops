@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameController : MonoSingleton<GameController>
@@ -22,6 +23,10 @@ public class GameController : MonoSingleton<GameController>
     public bool IsPaused { get { return this.state == EGameState.Paused; } }
     public bool IsGameOver { get { return this.state == EGameState.GameOver; } }
     public bool IsPlaying { get { return !(IsPaused || IsGameOver); } }
+
+
+    //GAMEOBJECT REFERENCES
+    [SerializeField] SceneNavigationController SNC;
 
 
 
@@ -94,20 +99,11 @@ public class GameController : MonoSingleton<GameController>
 
 
 
-    //QUIT GAME (ABANDON SESSION)
-    private static void RestartGame()
-    {
-        //TODO: LOAD THIS SCENE AGAIN
-        
-    }
+    //RESTART GAME
+    private static void RestartGame() => Instance.SNC.LoadScene(SceneNavigationController.eSceneName.RaindropsGame);
 
     //QUIT GAME (ABANDON SESSION)
-    private static void QuitGame()
-    {
-        //TODO: GO BACK TO MAIN MENU
-        //TODO: LOAD SCENE MAIN MENU
-        
-    }
+    private static void QuitGame() => Instance.SNC.LoadScene(SceneNavigationController.eSceneName.MainMenu);
 
 
     //EXIT GAME
