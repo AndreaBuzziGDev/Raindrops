@@ -72,6 +72,10 @@ public class UI_RaindropsGame : MonoBehaviour
 
         //RESET TEXT FIELD
         inputField.text = "0";
+
+        //FOCUS INPUT FIELD
+        inputField.Select();
+        inputField.ActivateInputField();
     }
 
 
