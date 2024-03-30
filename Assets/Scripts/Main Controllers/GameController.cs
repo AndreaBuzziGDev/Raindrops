@@ -55,17 +55,17 @@ public class GameController : MonoSingleton<GameController>
         {
             case EGameState.Start:
                 //RESERVED FOR INITIALIZATION
-                //TODO: REMOVE MENU
-                //SHOULD USE AN EVENT-BASED SYSTEM TO HANDLE SHOWING UI
                 
                 SetState(EGameState.Playing);
                 break;
             case EGameState.Playing:
                 //TODO: IMPLEMENT UN-SHOWING PAUSE
+                //SHOULD USE AN EVENT-BASED SYSTEM TO HANDLE SHOWING UI
 
                 break;
             case EGameState.Paused:
                 //TODO: IMPLEMENT SHOWING PAUSE
+                //SHOULD USE AN EVENT-BASED SYSTEM TO HANDLE SHOWING UI
 
                 break;
             case EGameState.GameOver:
