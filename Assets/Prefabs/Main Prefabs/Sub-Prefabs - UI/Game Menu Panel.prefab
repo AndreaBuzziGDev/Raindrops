@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3985377702787708777}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4398546367708444162}
+        m_TargetAssemblyTypeName: UI_GameMenuPanel, Assembly-CSharp
+        m_MethodName: HandleQuit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1937707429772165526
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +521,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3480327910669060056}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4398546367708444162}
+        m_TargetAssemblyTypeName: UI_GameMenuPanel, Assembly-CSharp
+        m_MethodName: HandleMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4740997354142516487
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +782,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7029616228917407768}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4398546367708444162}
+        m_TargetAssemblyTypeName: UI_GameMenuPanel, Assembly-CSharp
+        m_MethodName: HandleRestart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7213113078636342539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,4 +1183,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5016584576523120686}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4398546367708444162}
+        m_TargetAssemblyTypeName: UI_GameMenuPanel, Assembly-CSharp
+        m_MethodName: HandleContinue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
