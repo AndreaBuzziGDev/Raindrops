@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class UI_GameMenuPanel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //DATA
+
+
+    //METHODS
+    public void HandleContinue()
     {
+        //TODO: UNPAUSE GAME, REMOVE MENU
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HandleMainMenu()
     {
+        //TODO: LOAD SCENE MAIN MENU
+        
+    }
+
+    public void HandleRestart()
+    {
+        //TODO: RELOAD THE GAMEPLAY SCENE
+        
+    }
+
+    public void HandleQuit()
+    {
+        //TODO: QUIT APPLICATION
         
     }
 }
