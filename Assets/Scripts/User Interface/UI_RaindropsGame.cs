@@ -46,14 +46,18 @@ public class UI_RaindropsGame : MonoBehaviour
         //ACTION SUBSCRIPTIONS
         //ENTER
         inputPlayer.BaseActionMap.EnterAction.performed += OnEnterPerformed;
+        //ESCAPE
+        inputPlayer.BaseActionMap.EnterAction.performed += OnEscapePerformed;
 
     }
 
     private void OnDisable()
     {
         //ACTION UN-SUBSCRIPTIONS
-        //ESCAPE
+        //ENTER
         inputPlayer.BaseActionMap.EnterAction.performed -= OnEnterPerformed;
+        //ESCAPE
+        inputPlayer.BaseActionMap.EnterAction.performed -= OnEscapePerformed;
 
         //DISABLE INPUT WHEN OBJECT DISABLED
         inputPlayer.Disable();
@@ -88,6 +92,11 @@ public class UI_RaindropsGame : MonoBehaviour
         if(GameController.Instance.IsPlaying)
             DoBroadcastResult();
         //TODO: RE-FOCUS CURSOR ON INPUT FIELD
+    }
+
+    private void OnEscapePerformed(InputAction.CallbackContext value)
+    {
+        //TODO: OPEN MENU AND/OR HANDLE ESC
     }
 
 
