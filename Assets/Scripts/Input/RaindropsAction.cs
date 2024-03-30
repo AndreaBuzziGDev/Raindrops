@@ -35,6 +35,15 @@ public partial class @RaindropsAction: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5391296-439c-478c-8422-2e062c49a754"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -59,6 +68,17 @@ public partial class @RaindropsAction: IInputActionCollection2, IDisposable
                     ""action"": ""Enter Action"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f337b3cd-1dc7-453e-94dd-85db0b6fd923"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -68,6 +88,7 @@ public partial class @RaindropsAction: IInputActionCollection2, IDisposable
         // Base Action Map
         m_BaseActionMap = asset.FindActionMap("Base Action Map", throwIfNotFound: true);
         m_BaseActionMap_EnterAction = m_BaseActionMap.FindAction("Enter Action", throwIfNotFound: true);
+        m_BaseActionMap_Escape = m_BaseActionMap.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -130,11 +151,13 @@ public partial class @RaindropsAction: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_BaseActionMap;
     private List<IBaseActionMapActions> m_BaseActionMapActionsCallbackInterfaces = new List<IBaseActionMapActions>();
     private readonly InputAction m_BaseActionMap_EnterAction;
+    private readonly InputAction m_BaseActionMap_Escape;
     public struct BaseActionMapActions
     {
         private @RaindropsAction m_Wrapper;
         public BaseActionMapActions(@RaindropsAction wrapper) { m_Wrapper = wrapper; }
         public InputAction @EnterAction => m_Wrapper.m_BaseActionMap_EnterAction;
+        public InputAction @Escape => m_Wrapper.m_BaseActionMap_Escape;
         public InputActionMap Get() { return m_Wrapper.m_BaseActionMap; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -147,6 +170,9 @@ public partial class @RaindropsAction: IInputActionCollection2, IDisposable
             @EnterAction.started += instance.OnEnterAction;
             @EnterAction.performed += instance.OnEnterAction;
             @EnterAction.canceled += instance.OnEnterAction;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         private void UnregisterCallbacks(IBaseActionMapActions instance)
@@ -154,6 +180,9 @@ public partial class @RaindropsAction: IInputActionCollection2, IDisposable
             @EnterAction.started -= instance.OnEnterAction;
             @EnterAction.performed -= instance.OnEnterAction;
             @EnterAction.canceled -= instance.OnEnterAction;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         public void RemoveCallbacks(IBaseActionMapActions instance)
@@ -174,5 +203,6 @@ public partial class @RaindropsAction: IInputActionCollection2, IDisposable
     public interface IBaseActionMapActions
     {
         void OnEnterAction(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }
