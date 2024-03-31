@@ -121,6 +121,6 @@ public class UI_RaindropsGame : MonoBehaviour
     //EVENT-FIRING METHOD
     private void OnTearLost(ResultInputEventArgs myEventArg) => ResultInput?.Invoke(this, myEventArg);
     
-    public void OnGamePause(GameMenuEventArgs myEventArg) => GameMenuEA?.Invoke(this, myEventArg);
+    public static void OnGamePause(object sender, GameMenuEventArgs myEventArg) => GameMenuEA?.Invoke(sender, myEventArg);
 
 }
