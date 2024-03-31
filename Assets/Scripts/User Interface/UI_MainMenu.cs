@@ -27,11 +27,7 @@ public class UI_MainMenu : MonoBehaviour
 
     public void HandleCredits() => snc.LoadScene(SceneNavigationController.eSceneName.Credits);
 
-    public void HandleQuit()
-    {
-        //...
-
-    }
+    public void HandleQuit() => UtilsGeneric.QuitGame();
 
 
 }
