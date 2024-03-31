@@ -105,17 +105,7 @@ public class GameController : MonoSingleton<GameController>
 
 
     //EXIT GAME
-    private static void ExitGame()
-    {
-        Application.Quit();
-
-        #if UNITY_EDITOR
-            if (UnityEditor.EditorApplication.isPlaying)
-            {
-                UnityEditor.EditorApplication.isPlaying = false;
-            }
-        #endif
-    }
+    private static void ExitGame() => UtilsGeneric.QuitGame();
 
 
 
