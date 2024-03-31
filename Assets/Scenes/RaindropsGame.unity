@@ -464,11 +464,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUIController
       objectReference: {fileID: 0}
+    - target: {fileID: 7752799638073499159, guid: 80263af65913452458d223dd1e08884d, type: 3}
+      propertyPath: buttonPanel
+      value: 
+      objectReference: {fileID: 4747568899470600337}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80263af65913452458d223dd1e08884d, type: 3}
+--- !u!222 &4747568899470600337 stripped
+CanvasRenderer:
+  m_CorrespondingSourceObject: {fileID: 8527636301568217256, guid: 80263af65913452458d223dd1e08884d, type: 3}
+  m_PrefabInstance: {fileID: 4747568899470600336}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4877954706217067308
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -278,6 +278,10 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4398546367708444162, guid: ea96dd216e2241f4aa7f9d69809dfdae, type: 3}
+      propertyPath: buttonPanel
+      value: 
+      objectReference: {fileID: 8527636301568217256}
     - target: {fileID: 4740997354142516487, guid: ea96dd216e2241f4aa7f9d69809dfdae, type: 3}
       propertyPath: m_Name
       value: Game Menu Panel
@@ -370,5 +374,10 @@ PrefabInstance:
 --- !u!224 &715775133039537124 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6877925842246976497, guid: ea96dd216e2241f4aa7f9d69809dfdae, type: 3}
+  m_PrefabInstance: {fileID: 6241352106423183381}
+  m_PrefabAsset: {fileID: 0}
+--- !u!222 &8527636301568217256 stripped
+CanvasRenderer:
+  m_CorrespondingSourceObject: {fileID: 2361571364249172157, guid: ea96dd216e2241f4aa7f9d69809dfdae, type: 3}
   m_PrefabInstance: {fileID: 6241352106423183381}
   m_PrefabAsset: {fileID: 0}
