@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class UI_GameMenuPanel : MonoBehaviour
 {
     //DATA
+
+
+    //GAMEOBJECT REFERENCES
+    [SerializeField] CanvasRenderer buttonPanel;
 
 
     //LIFECYCLE FUNCTIONS
@@ -41,14 +47,14 @@ public class UI_GameMenuPanel : MonoBehaviour
         if(e.EventType == GameMenuEventArgs.EType.GAME_MENU_PAUSE_OPEN)
         {
             //
-            this.gameObject.SetActive(true);
+            buttonPanel.gameObject.SetActive(true);
         }
 
         //CLOSE
         if(e.EventType == GameMenuEventArgs.EType.GAME_MENU_PAUSE_CLOSE)
         {
             //
-            this.gameObject.SetActive(false);
+            buttonPanel.gameObject.SetActive(false);
         }
     }
 
