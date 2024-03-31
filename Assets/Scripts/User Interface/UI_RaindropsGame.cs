@@ -48,8 +48,7 @@ public class UI_RaindropsGame : MonoBehaviour
         //ENTER
         inputPlayer.BaseActionMap.EnterAction.performed += OnEnterPerformed;
         //ESCAPE
-        //TODO: FIX. WHY IS IT NOT GENERATING ESCAPE?
-        //inputPlayer.BaseActionMap.Escape.performed += OnEscapePerformed;
+        inputPlayer.BaseActionMap.Escape.performed += OnEscapePerformed;
 
     }
 
