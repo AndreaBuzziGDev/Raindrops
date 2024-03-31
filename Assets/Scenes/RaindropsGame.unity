@@ -449,10 +449,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5458440486299786952, guid: 80263af65913452458d223dd1e08884d, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5973594920662788187, guid: 80263af65913452458d223dd1e08884d, type: 3}
       propertyPath: m_Name
       value: GameUIController
