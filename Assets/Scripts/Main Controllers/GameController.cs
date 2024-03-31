@@ -65,14 +65,12 @@ public class GameController : MonoSingleton<GameController>
                 SetState(EGameState.Playing);
                 break;
             case EGameState.Playing:
-                //TODO: IMPLEMENT UN-SHOWING PAUSE
-                //SHOULD USE AN EVENT-BASED SYSTEM TO HANDLE SHOWING UI
-
+                GameMenuEventArgs gmea_c = new GameMenuEventArgs(GameMenuEventArgs.EType.GAME_MENU_PAUSE_CLOSE);
+                UI_RaindropsGame.OnGamePause(this, gmea_c);
                 break;
             case EGameState.Paused:
-                //TODO: IMPLEMENT SHOWING PAUSE
-                //SHOULD USE AN EVENT-BASED SYSTEM TO HANDLE SHOWING UI
-
+                GameMenuEventArgs gmea_o = new GameMenuEventArgs(GameMenuEventArgs.EType.GAME_MENU_PAUSE_OPEN);
+                UI_RaindropsGame.OnGamePause(this, gmea_o);
                 break;
             case EGameState.GameOver:
                 //TODO: IMPLEMENT SHOW UP OF GAME-OVER SCREEN
