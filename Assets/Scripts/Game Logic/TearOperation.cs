@@ -57,11 +57,18 @@ public class TearOperation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //TODO: A TEARCONTROLLER % BONUS MULTIPLIER
-        if(debugMode){
-            transform.position = transform.position + debugSpeed * Time.fixedDeltaTime * Vector3.down;
-        } else {
-            transform.position = transform.position + trueSpeed * Time.fixedDeltaTime * Vector3.down;
+        if(GameController.Instance.IsPlaying){
+            //TODO: A TEARCONTROLLER % BONUS MULTIPLIER
+            if(debugMode){
+                transform.position = transform.position + debugSpeed * Time.fixedDeltaTime * Vector3.down;
+            } else {
+                transform.position = transform.position + trueSpeed * Time.fixedDeltaTime * Vector3.down;
+            }
+        }
+        else
+        {
+            //TODO: MAKE TEARS OR THEIR CONTENT INVISIBLE WHEN THE GAME IS PAUSED
+            
         }
     }
 
