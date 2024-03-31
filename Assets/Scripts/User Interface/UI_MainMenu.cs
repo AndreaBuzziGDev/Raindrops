@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class UI_MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //DATA
+
+
+
+    //GAMEOBJECT REFERENCES
+    [SerializeField] SceneNavigationController snc;
+
+
+    //LIFECYCLE FUNCTIONS
+    
+
+    //FUNCTIONALITIES
+    ///GUI BUTTONS
+    public void HandlePlay() => snc.LoadScene(SceneNavigationController.eSceneName.RaindropsGame);
+
+    public void HandleOptions()
     {
-        
+        //...
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HandleCredits() => snc.LoadScene(SceneNavigationController.eSceneName.Credits);
+
+    public void HandleQuit()
     {
-        
+        //...
+
     }
+
+
 }
