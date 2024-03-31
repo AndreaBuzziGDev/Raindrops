@@ -48,7 +48,8 @@ public class UI_RaindropsGame : MonoBehaviour
         //ENTER
         inputPlayer.BaseActionMap.EnterAction.performed += OnEnterPerformed;
         //ESCAPE
-        inputPlayer.BaseActionMap.EnterAction.performed += OnEscapePerformed;
+        //TODO: FIX. WHY IS IT NOT GENERATING ESCAPE?
+        //inputPlayer.BaseActionMap.Escape.performed += OnEscapePerformed;
 
     }
 
@@ -97,7 +98,10 @@ public class UI_RaindropsGame : MonoBehaviour
 
     private void OnEscapePerformed(InputAction.CallbackContext value)
     {
-        //TODO: OPEN MENU AND/OR HANDLE ESC
+        if(GameController.Instance.IsPlaying)
+            GameController.Instance.SetState(GameController.EGameState.Paused);
+        else
+            GameController.Instance.SetState(GameController.EGameState.Playing);
     }
 
 
