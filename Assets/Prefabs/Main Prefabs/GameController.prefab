@@ -44,6 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39f6963d05074bf44b1f41de7597ebac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxConcurrentItems: 3
+  maxItemsPerSpawnIteration: 1
+  itemsAtSpawn: 2
+  maxSpawnIterationCooldown: 1
+  tearOpPrefab: {fileID: 1997937786787309842, guid: fe5bb8dde11caac439e7ec49186751eb, type: 3}
 --- !u!1 &6673436770007888764
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,3 +94,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2cf7440d1873748b2ceeb4045a9564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SNC: {fileID: 0}
