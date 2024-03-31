@@ -9,6 +9,7 @@ public class UI_RaindropsGame : MonoBehaviour
 {
     //EVENTS
     public static event EventHandler<ResultInputEventArgs> ResultInput;
+    public static event EventHandler<GameMenuEventArgs> GameMenuEA;
 
 
     //DATA
@@ -119,5 +120,7 @@ public class UI_RaindropsGame : MonoBehaviour
     
     //EVENT-FIRING METHOD
     private void OnTearLost(ResultInputEventArgs myEventArg) => ResultInput?.Invoke(this, myEventArg);
+    
+    public void OnGamePause(GameMenuEventArgs myEventArg) => GameMenuEA?.Invoke(this, myEventArg);
 
 }
