@@ -17,6 +17,9 @@ public class UI_GameMenuPanel : MonoBehaviour
     //LIFECYCLE FUNCTIONS
     void Start()
     {
+        //DISABLE BUTTON PANEL
+        buttonPanel.gameObject.SetActive(false);
+
         //LISTEN EVENTS
         UI_RaindropsGame.GameMenuEA += HandleGameMenuEvent;
     }
