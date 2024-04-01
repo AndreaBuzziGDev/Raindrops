@@ -22,6 +22,7 @@ public class UI_RaindropsGame : MonoBehaviour
 
     //PREFAB REFERENCES
     [SerializeField] private TMP_InputField inputField;
+    [SerializeField] private TMP_Text textScore;
 
 
 
@@ -37,6 +38,7 @@ public class UI_RaindropsGame : MonoBehaviour
     void Start()
     {
         inputField.text = "0";
+        textScore.text = "0";
     }
 
     private void OnEnable()
@@ -115,7 +117,7 @@ public class UI_RaindropsGame : MonoBehaviour
 
 
     //UTILITIES
-    
+    public void SetScore(int newScore) => textScore.text = newScore.ToString();
 
 
 
