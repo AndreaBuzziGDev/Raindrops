@@ -14,15 +14,20 @@ public class TearController : MonoSingleton<TearController>
     [SerializeField] int maxItemsPerSpawnIteration = 1;
     [SerializeField] float maxSpawnIterationCooldown = 1.0f;
 
+    //TODO: SEPARATE IN SECTIONS IN THE EDITOR THESE THINGS
+    [SerializeField] int maxLives = 3;
+
 
     //GAMEPLAY STATS
     int concurrentItems;
     float spawnIterationCooldown;
     int score;
+    int lives;
 
 
     //DATA METHODS
     public bool IsMaxConcurrentItems { get { return maxConcurrentItems <= concurrentItems; } }
+    public bool IsGameOverCondition { get { return lives <= 0; } }
 
 
 
@@ -47,6 +52,9 @@ public class TearController : MonoSingleton<TearController>
         //INIZIALIZE SCENE
         List<TearOperation> initialTears = FindObjectsOfType<TearOperation>().ToList();
         concurrentItems = initialTears.Count;
+
+        //INITIALIZE GAME STATS
+        lives = maxLives;
 
         //TODO: THIS SHOULD START WITH POOLED OPERATIONS
         
@@ -125,10 +133,14 @@ public class TearController : MonoSingleton<TearController>
 
         //TODO: ENQUEUE THE SPAWN
 
-        
+
         //TODO: HANDLE AN EFFECT FOR TEAR DESTRUCTION (SPRITE ANIMATION, PARTICLE EFFECT...)
-        
-        
+
+        //HANDLING GAME STATS
+        lives--;
+        if(IsGameOverCondition)
+            GameController.Instance.SetState(GameController.EGameState.GameOver);
+
         //DESTROY
         Destroy(toDestroy.gameObject);
         concurrentItems--;
