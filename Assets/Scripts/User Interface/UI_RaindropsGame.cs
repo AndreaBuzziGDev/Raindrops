@@ -32,15 +32,14 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
     // Start is called before the first frame update
     void Start()
     {
-        inputPlayer = new RaindropsAction();
-
         inputField.text = "0";
         textScore.text = "0";
     }
 
     private void OnEnable()
     {
-        //ENABLE INPUT WHEN OBJECT ENABLED
+        //ENABLE INPUT WHEN OBJECT STARTS
+        inputPlayer = new RaindropsAction();
         inputPlayer.Enable();
 
         //ACTION SUBSCRIPTIONS
