@@ -52,8 +52,6 @@ public class GameController : MonoSingleton<GameController>
 
     
     //FUNCTIONALITIES
-    //TODO: SWITCH THIS TO A PRIVATE IMPLEMENTATION ?
-    //MIGHT PROVE AS AN INTERESTING EXERCISE IF USING AN EVENT-BASED IMPLEMENTATION. NOT NEEDED WITH SINGLETON.
     public void SetState(EGameState targetState)
     {
         state = targetState;
