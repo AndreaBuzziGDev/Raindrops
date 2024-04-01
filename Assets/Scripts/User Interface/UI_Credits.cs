@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -28,6 +29,11 @@ public class UI_Credits : MonoBehaviour
         //ACTION SUBSCRIPTIONS
         //ESCAPE
         inputPlayer.BaseActionMap.Escape.performed += OnEscapePerformed;
+    }
+
+    void OnDestroy()
+    {
+        inputPlayer.BaseActionMap.Escape.performed -= OnEscapePerformed;
     }
 
 

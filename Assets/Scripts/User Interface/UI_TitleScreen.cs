@@ -39,6 +39,14 @@ public class UI_TitleScreen : MonoSingleton<UI_TitleScreen>
         //
     }
 
+    void OnDestroy()
+    {
+        inputPlayer.BaseActionMap.Escape.performed -= OnEscapePerformed;
+    }
+
+
+
+    
     //FUNCTIONALITIES
     //TODO: JUICYNESS TO UI
 
