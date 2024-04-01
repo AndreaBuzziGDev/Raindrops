@@ -145,6 +145,7 @@ public class TearController : MonoSingleton<TearController>
 
         //HANDLE GAMEPLAY STATS
         score += GetTearScore(solvedTear);
+        UI_RaindropsGame.Instance.SetScore(score);
 
         //DESTROY
         Destroy(solvedTear.gameObject);
