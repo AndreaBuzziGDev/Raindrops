@@ -23,6 +23,7 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
     //PREFAB REFERENCES
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text textScore;
+    [SerializeField] private TMP_Text textLives;
 
 
 
@@ -34,6 +35,7 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
     {
         inputField.text = "0";
         textScore.text = "0";
+        textScore.text = "3";//TODO: AT THE START OF THE GAME, THIS SHOULD BE UPDATED MANUALLY BY ANOTHER ENTITY
     }
 
     private void OnEnable()
@@ -114,6 +116,7 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
 
     //UTILITIES
     public void SetScore(int newScore) => textScore.text = newScore.ToString();
+    public void SetLives(int newLives) => textLives.text = newLives.ToString();
 
 
 
