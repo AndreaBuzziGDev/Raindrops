@@ -314,6 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputField: {fileID: 1270473042176773777}
+  textScore: {fileID: 4979347068173912385}
 --- !u!1 &6014298914278261281
 GameObject:
   m_ObjectHideFlags: 0
