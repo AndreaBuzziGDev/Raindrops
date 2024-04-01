@@ -138,8 +138,8 @@ public class TearController : MonoSingleton<TearController>
 
         //HANDLING GAME STATS
         lives--;
-        //TODO: UPDATE GUI
-        
+        UI_RaindropsGame.Instance.SetLives(lives);
+
         if(IsGameOverCondition)
             GameController.Instance.SetState(GameController.EGameState.GameOver);
 
