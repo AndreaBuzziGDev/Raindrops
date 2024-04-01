@@ -14,6 +14,7 @@ public class TearOperation : MonoBehaviour
     //DATA
     [SerializeField] float trueSpeed = 1.0f;
     private TearOperationData myData;
+    public TearOperationData TOData { get { return myData; } }
 
 
 
