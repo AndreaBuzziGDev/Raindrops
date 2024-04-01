@@ -29,14 +29,11 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
 
 
     //LIFECYCLE FUNCTIONS
-    private void Awake()
-    {
-        inputPlayer = new RaindropsAction();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
+        inputPlayer = new RaindropsAction();
+
         inputField.text = "0";
         textScore.text = "0";
     }
