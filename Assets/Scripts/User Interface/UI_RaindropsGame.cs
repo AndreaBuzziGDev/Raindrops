@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using System;
 
-public class UI_RaindropsGame : MonoBehaviour
+public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
 {
     //EVENTS
     public static event EventHandler<ResultInputEventArgs> ResultInput;
