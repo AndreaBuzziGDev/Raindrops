@@ -12,7 +12,6 @@ public class TearController : MonoSingleton<TearController>
     //GAMEPLAY SETTINGS
     [SerializeField] int maxConcurrentItems = 3;
     [SerializeField] int maxItemsPerSpawnIteration = 1;
-    [SerializeField] int itemsAtSpawn = 2;
     [SerializeField] float maxSpawnIterationCooldown = 1.0f;
 
 
