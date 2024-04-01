@@ -55,6 +55,8 @@ public class TearController : MonoSingleton<TearController>
 
         //INITIALIZE GAME STATS
         lives = maxLives;
+        UI_RaindropsGame.Instance.SetScore(score);
+        UI_RaindropsGame.Instance.SetLives(lives);
 
         //TODO: THIS SHOULD START WITH POOLED OPERATIONS
         

@@ -34,8 +34,6 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
     void Start()
     {
         inputField.text = "0";
-        textScore.text = "0";
-        textScore.text = "3";//TODO: AT THE START OF THE GAME, THIS SHOULD BE UPDATED MANUALLY BY ANOTHER ENTITY
     }
 
     private void OnEnable()
