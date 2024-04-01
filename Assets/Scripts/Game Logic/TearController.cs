@@ -138,6 +138,8 @@ public class TearController : MonoSingleton<TearController>
 
         //HANDLING GAME STATS
         lives--;
+        //TODO: UPDATE GUI
+        
         if(IsGameOverCondition)
             GameController.Instance.SetState(GameController.EGameState.GameOver);
 
