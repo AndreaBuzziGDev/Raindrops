@@ -19,6 +19,7 @@ public class TearController : MonoSingleton<TearController>
     //GAMEPLAY STATS
     int concurrentItems;
     float spawnIterationCooldown;
+    int score;
 
 
     //DATA METHODS
@@ -142,13 +143,39 @@ public class TearController : MonoSingleton<TearController>
 
         //TODO: HANDLE AN EFFECT FOR TEAR SOLUTION (SPRITE ANIMATION, PARTICLE EFFECT...)
 
+        //HANDLE GAMEPLAY STATS
+        score += GetTearScore(solvedTear);
+
         //DESTROY
         Destroy(solvedTear.gameObject);
         concurrentItems--;
     }
-    
+
+
+
+
+
+
     //UTILITIES
-    
+    //TODO: EVALUATE IF THIS HAS TO BE MOVED SOMEWHERE ELSE (EG: STATIC METHOD ON TearOperationData?)
+    public static int GetTearScore(TearOperation tear)
+    {
+        switch (tear.TOData.Operation)
+        {
+            case TearOperationData.EOperation.SUM:
+                return 5;
+            case TearOperationData.EOperation.DIFFERENCE:
+                return 10;
+            case TearOperationData.EOperation.MULTIPLICATION:
+                return 20;
+            case TearOperationData.EOperation.DIVISION:
+                return 10;
+            default:
+                Debug.LogError("Invalid operation value has been provided");
+                return 0;
+        }
+    }
+
 
 
 }
