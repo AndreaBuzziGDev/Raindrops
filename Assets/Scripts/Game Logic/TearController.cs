@@ -164,13 +164,13 @@ public class TearController : MonoSingleton<TearController>
         switch (tear.TOData.Operation)
         {
             case TearOperationData.EOperation.SUM:
-                return 5;
+                return 1;
             case TearOperationData.EOperation.DIFFERENCE:
-                return 10;
+                return 2;
             case TearOperationData.EOperation.MULTIPLICATION:
-                return 20;
+                return 5;
             case TearOperationData.EOperation.DIVISION:
-                return 10;
+                return 2;
             default:
                 Debug.LogError("Invalid operation value has been provided");
                 return 0;
