@@ -71,8 +71,8 @@ public class GameController : MonoSingleton<GameController>
                 UI_RaindropsGame.OnGamePause(this, gmea_o);
                 break;
             case EGameState.GameOver:
-                //TODO: IMPLEMENT SHOW UP OF GAME-OVER SCREEN
-
+                GameMenuEventArgs gmea_go = new GameMenuEventArgs(GameMenuEventArgs.EType.GAME_OVER);
+                UI_RaindropsGame.OnGamePause(this, gmea_go);
                 break;
             case EGameState.Restarting:
                 RestartGame();
