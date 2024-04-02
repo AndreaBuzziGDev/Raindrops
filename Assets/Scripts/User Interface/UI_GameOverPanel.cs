@@ -8,7 +8,8 @@ public class UI_GameOverPanel : MonoBehaviour
 
 
     //GAMEOBJECT REFERENCES
-    [SerializeField] CanvasRenderer gameOverCanvas;//TODO: USE TO ADDRESS VISIBILITY
+    [SerializeField] CanvasRenderer titleCanvas;//TODO: USE TO ADDRESS VISIBILITY
+    [SerializeField] CanvasRenderer buttonCanvas;//TODO: USE TO ADDRESS VISIBILITY
 
 
     //LIFECYCLE FUNCTIONS
@@ -16,7 +17,8 @@ public class UI_GameOverPanel : MonoBehaviour
     void Start()
     {
         //DISABLE CANVAS
-        gameOverCanvas.gameObject.SetActive(false);
+        titleCanvas.gameObject.SetActive(false);
+        buttonCanvas.gameObject.SetActive(false);
         
         //LISTEN EVENTS
         UI_RaindropsGame.GameMenuEA += HandleGameMenuEvent;
@@ -42,10 +44,12 @@ public class UI_GameOverPanel : MonoBehaviour
         {
             case GameMenuEventArgs.EType.GAME_MENU_PAUSE_OPEN:
             case GameMenuEventArgs.EType.GAME_MENU_PAUSE_CLOSE:
-                gameOverCanvas.gameObject.SetActive(false);
+                titleCanvas.gameObject.SetActive(false);
+                buttonCanvas.gameObject.SetActive(false);
                 break;
             case GameMenuEventArgs.EType.GAME_OVER:
-                gameOverCanvas.gameObject.SetActive(true);
+                titleCanvas.gameObject.SetActive(true);
+                buttonCanvas.gameObject.SetActive(true);
                 break;
         }
     }
