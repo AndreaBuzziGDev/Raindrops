@@ -60,9 +60,10 @@ public class TearController : MonoSingleton<TearController>
         lives = maxLives;
         UI_RaindropsGame.Instance.SetScore(score);
         UI_RaindropsGame.Instance.SetLives(lives);
-        
+
         SaveGameStats sgs = (SaveGameStats) UtilsSave.LoadSave(SaveController.defaultGameStatsName);
-        existingHighScore = sgs.HighScore;
+        existingHighScore = sgs==null ? 0 : sgs.HighScore;
+        Debug.Log("existingHighScore: " + existingHighScore);
 
         //TODO: THIS SHOULD START WITH POOLED OPERATIONS
         
@@ -169,6 +170,8 @@ public class TearController : MonoSingleton<TearController>
         UI_RaindropsGame.Instance.SetScore(score);
         if(score > existingHighScore)
         {
+            //TODO: IMPROVE SAVE CONDITION (DON'T KEEP SPAMMING SAVES ON DISC)
+            Debug.Log("new highScore: " + score);
             SaveGameStats sgs = new(SaveController.defaultGameStatsName, score);
             UtilsSave.CreateSave(sgs.FileName, sgs);
             //TODO: MARK ON UI SO THAT NEW HIGH SCORE IS KNOWN
