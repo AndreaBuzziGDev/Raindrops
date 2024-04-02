@@ -27,7 +27,7 @@ public static class UtilsSave
     //TODO: MIGHT NEED TO WORK BASED ON TYPE
     public static SaveData LoadSave(string savedFilePath)
     {
-        if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
+        if (File.Exists(Application.persistentDataPath + "/" + savedFilePath + ".save"))
         {
             BinaryFormatter bf = new();
             FileStream file = File.Open(Application.persistentDataPath + "/" + savedFilePath + ".save", FileMode.Open);
@@ -38,6 +38,7 @@ public static class UtilsSave
         }
         else
         {
+            Debug.Log("File Does not exist: " + savedFilePath);
             return null;
         }
     }
