@@ -5,10 +5,10 @@ using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class UtilsSave
+public static class UtilsSave
 {
     //FUNCTIONALITIES
-    public void CreateSave(string savedFilePath, SaveData save)
+    public static void CreateSave(string savedFilePath, SaveData save)
     {
         if(!string.IsNullOrEmpty(savedFilePath))
         {
@@ -23,7 +23,7 @@ public class UtilsSave
             //
         }
     }
-    public SaveData LoadSave(string savedFilePath)
+    public static SaveData LoadSave(string savedFilePath)
     {
         if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
         {
