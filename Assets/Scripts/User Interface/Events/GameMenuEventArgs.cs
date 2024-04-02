@@ -9,7 +9,8 @@ public class GameMenuEventArgs : EventArgs
     public enum EType
     {
         GAME_MENU_PAUSE_OPEN,
-        GAME_MENU_PAUSE_CLOSE
+        GAME_MENU_PAUSE_CLOSE,
+        GAME_OVER
     }
 
     //DATA
