@@ -46,8 +46,6 @@ public class UI_GameOverPanel : MonoBehaviour
         {
             case GameMenuEventArgs.EType.GAME_MENU_PAUSE_OPEN:
             case GameMenuEventArgs.EType.GAME_MENU_PAUSE_CLOSE:
-                //TODO: VERIFY
-                gameOverCanvas.gameObject.SetActive(false);
                 break;
             case GameMenuEventArgs.EType.GAME_OVER:
                 gameOverCanvas.gameObject.SetActive(true);
