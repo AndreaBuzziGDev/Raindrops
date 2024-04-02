@@ -95,7 +95,7 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
 
     private void OnEscapePerformed(InputAction.CallbackContext value)
     {
-        if(GameController.Instance.IsPaused)
+        if(GameController.Instance.IsPlaying)
             GameController.Instance.SetState(GameController.EGameState.Paused);
         else if(!GameController.Instance.IsGameOver)
             GameController.Instance.SetState(GameController.EGameState.Playing);
