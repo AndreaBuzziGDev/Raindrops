@@ -60,6 +60,7 @@ public class TearOperation : MonoBehaviour
     {
         if(GameController.Instance.IsPlaying){
             //TODO: A TEARCONTROLLER % BONUS MULTIPLIER
+            //TODO: THIS REALLY SHOULD EVOLVE IN ITS OWN DEDICATED FUNCTIONALITY
             if(debugMode){
                 transform.position = transform.position + debugSpeed * Time.fixedDeltaTime * Vector3.down;
             } else {
