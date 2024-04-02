@@ -24,6 +24,9 @@ public class TearController : MonoSingleton<TearController>
     int score;
     int lives;
 
+    //SAVE-RELATED STATS
+    int existingHighScore;
+
 
     //DATA METHODS
     public bool IsMaxConcurrentItems { get { return maxConcurrentItems <= concurrentItems; } }
@@ -161,7 +164,13 @@ public class TearController : MonoSingleton<TearController>
         //HANDLE SCORE
         score += GetTearScore(solvedTear);
         UI_RaindropsGame.Instance.SetScore(score);
-        //TODO: TRY HANDLING HIGH SCORE
+        if(score > existingHighScore)
+        {
+            SaveGameStats sgs = new(SaveController.defaultGameStatsName, score);
+            UtilsSave.CreateSave(sgs.FileName, sgs);
+            //TODO: MARK ON UI SO THAT NEW HIGH SCORE IS KNOWN
+            //...
+        }
 
         //DESTROY
         Destroy(solvedTear.gameObject);
