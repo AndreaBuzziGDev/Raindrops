@@ -23,6 +23,8 @@ public static class UtilsSave
             //
         }
     }
+
+    //TODO: MIGHT NEED TO WORK BASED ON TYPE
     public static SaveData LoadSave(string savedFilePath)
     {
         if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
