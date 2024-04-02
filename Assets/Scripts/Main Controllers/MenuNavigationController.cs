@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: DELETE. This controller has become completely obsolete. using UI_MainMenu Instead.
 public class MenuNavigationController : MonoBehaviour
 {
     //ENUMS
