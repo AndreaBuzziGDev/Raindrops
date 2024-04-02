@@ -158,9 +158,10 @@ public class TearController : MonoSingleton<TearController>
 
         //TODO: HANDLE AN EFFECT FOR TEAR SOLUTION (SPRITE ANIMATION, PARTICLE EFFECT...)
 
-        //HANDLE GAMEPLAY STATS
+        //HANDLE SCORE
         score += GetTearScore(solvedTear);
         UI_RaindropsGame.Instance.SetScore(score);
+        //TODO: TRY HANDLING HIGH SCORE
 
         //DESTROY
         Destroy(solvedTear.gameObject);
