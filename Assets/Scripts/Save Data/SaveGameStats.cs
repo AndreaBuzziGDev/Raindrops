@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SaveGameStats : SaveData
 {
-    //
+    //DATA-ONLY CLASS...
     protected int highScore;
 
     public int HighScore
@@ -18,5 +18,12 @@ public class SaveGameStats : SaveData
             else
                 highScore = 0;
         }
+    }
+    
+    //CONSTRUCTOR
+    public SaveGameStats(string fileName, int highScore)
+    {
+        this.fileName = fileName;
+        this.highScore = highScore;
     }
 }
