@@ -32,7 +32,7 @@ public class UI_GameOverPanel : MonoBehaviour
 
     //FUNCTIONALITIES
     ///GUI BUTTONS
-    //TODO: IMPLEMENT
+    //TODO: IMPLEMENT ACTUAL GUI
     
 
     //EVENT HANDLING
