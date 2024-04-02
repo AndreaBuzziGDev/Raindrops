@@ -23,13 +23,20 @@ public class UtilsSave
             //
         }
     }
-    public void LoadSave(string savedFilePath)
+    public SaveData LoadSave(string savedFilePath)
     {
         if (File.Exists(Application.persistentDataPath + "/gamesave.save"))
         {
             BinaryFormatter bf = new();
             FileStream file = File.Open(Application.persistentDataPath + "/" + savedFilePath + ".save", FileMode.Open);
+            SaveData save = (SaveData) bf.Deserialize(file);
+            file.Close();
 
+            return save;
+        }
+        else
+        {
+            return null;
         }
     }
 
