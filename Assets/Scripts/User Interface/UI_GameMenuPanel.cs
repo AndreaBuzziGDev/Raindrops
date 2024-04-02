@@ -46,18 +46,15 @@ public class UI_GameMenuPanel : MonoBehaviour
     //EVENT HANDLING
     public void HandleGameMenuEvent(object sender, GameMenuEventArgs e)
     {
-        //OPEN
-        if(e.EventType == GameMenuEventArgs.EType.GAME_MENU_PAUSE_OPEN)
+        switch(e.EventType)
         {
-            //
-            buttonPanel.gameObject.SetActive(true);
-        }
-
-        //CLOSE
-        if(e.EventType == GameMenuEventArgs.EType.GAME_MENU_PAUSE_CLOSE)
-        {
-            //
-            buttonPanel.gameObject.SetActive(false);
+            case GameMenuEventArgs.EType.GAME_MENU_PAUSE_OPEN:
+                buttonPanel.gameObject.SetActive(true);
+                break;
+            case GameMenuEventArgs.EType.GAME_MENU_PAUSE_CLOSE:
+            case GameMenuEventArgs.EType.GAME_OVER:
+                buttonPanel.gameObject.SetActive(false);
+                break;
         }
     }
 
