@@ -27,10 +27,14 @@ public class TearController : MonoSingleton<TearController>
     //SAVE-RELATED STATS
     int existingHighScore;
 
+    //TODO: THIS PROBABLY SHOULD RELY UPON A DEDICATED DIFFICULTY-HANDLING SCRIPT
+    int speedDifficultyValue;
+
 
     //DATA METHODS
     public bool IsMaxConcurrentItems { get { return maxConcurrentItems <= concurrentItems; } }
     public bool IsGameOverCondition { get { return lives <= 0; } }
+    public int SpeedDifficultyValue { get { return speedDifficultyValue; } }
 
 
 
@@ -60,6 +64,8 @@ public class TearController : MonoSingleton<TearController>
         lives = maxLives;
         UI_RaindropsGame.Instance.SetScore(score);
         UI_RaindropsGame.Instance.SetLives(lives);
+
+        speedDifficultyValue = UtilsPrefs.GameSettings.GetGameSpeed();
 
         SaveGameStats sgs = (SaveGameStats) UtilsSave.LoadSave(SaveController.defaultGameStatsName);
         existingHighScore = sgs==null ? 0 : sgs.HighScore;
