@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class MainMenuEventArgs : MonoBehaviour
+public class MainMenuEventArgs : EventArgs
 {
-    // Start is called before the first frame update
-    void Start()
+    //ENUMS
+    public enum EType
     {
-        
+        MAIN_MENU,
+        MAIN_OPTIONS
     }
+    
+    //DATA
+    private EType eventType;
+    public EType EventType { get { return eventType; } }
 
-    // Update is called once per frame
-    void Update()
+
+
+    //CONSTRUCTOR
+    public MainMenuEventArgs (EType eventType = EType.MAIN_MENU)
     {
-        
+        this.eventType = eventType;
     }
 }
