@@ -60,6 +60,9 @@ public class TearController : MonoSingleton<TearController>
         lives = maxLives;
         UI_RaindropsGame.Instance.SetScore(score);
         UI_RaindropsGame.Instance.SetLives(lives);
+        
+        SaveGameStats sgs = (SaveGameStats) UtilsSave.LoadSave(SaveController.defaultGameStatsName);
+        existingHighScore = sgs.HighScore;
 
         //TODO: THIS SHOULD START WITH POOLED OPERATIONS
         
