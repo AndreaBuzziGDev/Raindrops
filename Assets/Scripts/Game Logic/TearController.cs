@@ -172,7 +172,8 @@ public class TearController : MonoSingleton<TearController>
         {
             //TODO: IMPROVE SAVE CONDITION (DON'T KEEP SPAMMING SAVES ON DISC)
             Debug.Log("new highScore: " + score);
-            SaveGameStats sgs = new(SaveController.defaultGameStatsName, score);
+            existingHighScore = score;
+            SaveGameStats sgs = new(SaveController.defaultGameStatsName, existingHighScore);
             UtilsSave.CreateSave(sgs.FileName, sgs);
             //TODO: MARK ON UI SO THAT NEW HIGH SCORE IS KNOWN
             //...
