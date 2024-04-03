@@ -11,13 +11,10 @@ public class UI_TitleScreen : MonoSingleton<UI_TitleScreen>
     public RaindropsAction InputPlayer { get { return inputPlayer; } }
 
 
-
     //GAMEOBJECT REFERENCES
-    [SerializeField] SceneNavigationController snc;
 
 
     //LIFECYCLE FUNCTIONS
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +54,7 @@ public class UI_TitleScreen : MonoSingleton<UI_TitleScreen>
     //EVENT-BASED INPUT IMPLEMENTATION
     private void OnEscapePerformed(InputAction.CallbackContext value)
     {
-        snc.LoadScene(SceneNavigationController.eSceneName.MainMenu);
+        SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.MainMenu);
     }
 
 
@@ -66,7 +63,7 @@ public class UI_TitleScreen : MonoSingleton<UI_TitleScreen>
     {
         // suspend execution for 5 seconds
         yield return new WaitForSeconds(5);
-        snc.LoadScene(SceneNavigationController.eSceneName.MainMenu);
+        SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.MainMenu);
     }
 
 }

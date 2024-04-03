@@ -12,9 +12,7 @@ public class UI_Credits : MonoBehaviour
     public RaindropsAction InputPlayer { get { return inputPlayer; } }
 
 
-
     //GAMEOBJECT REFERENCES
-    [SerializeField] SceneNavigationController snc;
 
 
     //LIFECYCLE FUNCTIONS
@@ -40,7 +38,7 @@ public class UI_Credits : MonoBehaviour
 
 
     //FUNCTIONALITIES
-    public void HandleBack() => snc.LoadScene(SceneNavigationController.eSceneName.MainMenu);
+    public void HandleBack() => SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.MainMenu);
 
 
 
@@ -49,7 +47,7 @@ public class UI_Credits : MonoBehaviour
     //EVENT-BASED INPUT IMPLEMENTATION
     private void OnEscapePerformed(InputAction.CallbackContext value)
     {
-        snc.LoadScene(SceneNavigationController.eSceneName.MainMenu);
+        SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.MainMenu);
     }
 
 }

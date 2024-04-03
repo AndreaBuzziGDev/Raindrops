@@ -26,9 +26,6 @@ public class GameController : MonoSingleton<GameController>
 
 
     //GAMEOBJECT REFERENCES
-    [SerializeField] SceneNavigationController SNC;
-
-
 
 
 
@@ -96,10 +93,10 @@ public class GameController : MonoSingleton<GameController>
 
 
     //RESTART GAME
-    private static void RestartGame() => Instance.SNC.LoadScene(SceneNavigationController.eSceneName.RaindropsGame);
+    private static void RestartGame() => SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.RaindropsGame);
 
     //QUIT GAME (ABANDON SESSION)
-    private static void QuitGame() => Instance.SNC.LoadScene(SceneNavigationController.eSceneName.MainMenu);
+    private static void QuitGame() => SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.MainMenu);
 
 
     //EXIT GAME

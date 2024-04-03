@@ -10,7 +10,6 @@ public class UI_MainMenu : MonoBehaviour
 
 
     //GAMEOBJECT REFERENCES
-    [SerializeField] SceneNavigationController snc;//TODO: MAKE IT A MONOSINGLETON?
     [SerializeField] Canvas mainMenuPanel;
     
 
@@ -30,7 +29,7 @@ public class UI_MainMenu : MonoBehaviour
 
     //FUNCTIONALITIES
     ///GUI BUTTONS
-    public void HandlePlay() => snc.LoadScene(SceneNavigationController.eSceneName.RaindropsGame);
+    public void HandlePlay() => SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.RaindropsGame);
 
     public void HandleOptions()
     {
@@ -39,7 +38,7 @@ public class UI_MainMenu : MonoBehaviour
 
     }
 
-    public void HandleCredits() => snc.LoadScene(SceneNavigationController.eSceneName.Credits);
+    public void HandleCredits() => SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.Credits);
 
     public void HandleQuit() => UtilsGeneric.QuitGame();
 
