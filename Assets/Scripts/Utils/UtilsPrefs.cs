@@ -17,26 +17,23 @@ public static class UtilsPrefs
 
     public static class GameSettings
     {
+        //ENUMS
         public enum DIFFICULTY
         {
-            EASY,
-            NORMAL,
-            HARD
+            EASY = 0,
+            NORMAL = 1,
+            HARD = 2
         }
 
-        public readonly static Dictionary<GameSettings.DIFFICULTY, int> DifficultyMapping = new Dictionary<GameSettings.DIFFICULTY, int>
-        {
-            {DIFFICULTY.EASY, 1},
-            {DIFFICULTY.NORMAL, 2},
-            {DIFFICULTY.HARD, 3},
-        };
-        
+
+
+        //FUNCTIONALITIES
         //DIFFICULTY SETTINGS
 
         //GAME SPEED
-        public static void SetGameSpeed(DIFFICULTY value) => PlayerPrefs.SetInt(SaveController.gameSpeed, DifficultyMapping[value]);
+        public static void SetGameSpeed(DIFFICULTY value) => PlayerPrefs.SetInt(SaveController.gameSpeed, (int) value);
 
-        public static int GetGameSpeed() => PlayerPrefs.HasKey(SaveController.gameSpeed) ? PlayerPrefs.GetInt(SaveController.gameSpeed) : 1;
+        public static int GetGameSpeed() => PlayerPrefs.HasKey(SaveController.gameSpeed) ? PlayerPrefs.GetInt(SaveController.gameSpeed) : (int) DIFFICULTY.EASY;
         
         //GRADUAL GAME DIFFICULTY INCREMENT
         //UNUSED...
