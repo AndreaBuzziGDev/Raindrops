@@ -31,12 +31,7 @@ public class UI_MainMenu : MonoBehaviour
     ///GUI BUTTONS
     public void HandlePlay() => SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.RaindropsGame);
 
-    public void HandleOptions()
-    {
-        //TODO: MAKE OPTIONS TRANSITION TO THE RIGHT MENU
-        //...
-
-    }
+    public void HandleOptions() => UI_RaindropsMainMenu.OpenOptions();
 
     public void HandleCredits() => SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.Credits);
 
