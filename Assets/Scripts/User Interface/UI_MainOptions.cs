@@ -29,6 +29,16 @@ public class UI_MainOptions : MonoBehaviour
 
 
     //FUNCTIONALITIES
+    private void RefreshView()
+    {
+        //TODO: PRE-SELECT VALUES
+
+        //TODO: PRE-ADJUST SLIDERS
+        
+    }
+
+
+    //UI ELEMENTS
     //DROPDOWN MENUS
     public void HandleDifficultyChange(int newValue) => UtilsPrefs.GameSettings.SetGameSpeed((UtilsPrefs.GameSettings.DIFFICULTY) newValue);
 
@@ -48,6 +58,7 @@ public class UI_MainOptions : MonoBehaviour
         {
             case MainMenuEventArgs.EType.MAIN_OPTIONS:
                 optionsMenuPanel.gameObject.SetActive(true);
+                RefreshView();
                 break;
             default:
                 optionsMenuPanel.gameObject.SetActive(false);
