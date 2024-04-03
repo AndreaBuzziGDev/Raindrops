@@ -9,6 +9,7 @@ public class UI_MainOptions : MonoBehaviour
 
 
     //GAMEOBJECT REFERENCES
+    [SerializeField] SceneNavigationController snc;//TODO: MAKE IT A MONOSINGLETON?
     
 
     //LIFECYCLE FUNCTIONS
@@ -18,12 +19,6 @@ public class UI_MainOptions : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
 
     //FUNCTIONALITIES
     ///GUI BUTTONS
