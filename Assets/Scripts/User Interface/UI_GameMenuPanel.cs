@@ -57,5 +57,4 @@ public class UI_GameMenuPanel : MonoBehaviour
                 break;
         }
     }
-
 }
