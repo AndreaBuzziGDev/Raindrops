@@ -445,6 +445,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1004820328681240136, guid: 0f39d576162c07a4080012371d2f1f7b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8449227240958530276, guid: 0f39d576162c07a4080012371d2f1f7b, type: 3}
       propertyPath: m_Name
       value: MainMenuUIController

@@ -37,7 +37,7 @@ public class UI_MainOptions : MonoBehaviour
     {
         switch(e.EventType)
         {
-            case MainMenuEventArgs.EType.MAIN_MENU:
+            case MainMenuEventArgs.EType.MAIN_OPTIONS:
                 optionsMenuPanel.gameObject.SetActive(true);
                 break;
             default:
