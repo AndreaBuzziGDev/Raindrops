@@ -45,8 +45,8 @@ public class UI_RaindropsMainMenu : MonoSingleton<UI_RaindropsMainMenu>
     private void OnEscapePerformed(InputAction.CallbackContext value) => MainMenuEA?.Invoke(this, new());
 
     //FUNCTIONALITIES
-    public void OpenMainMenu() => MainMenuEA?.Invoke(this, new(MainMenuEventArgs.EType.MAIN_MENU));
-    public void OpenOptions() => MainMenuEA?.Invoke(this, new(MainMenuEventArgs.EType.MAIN_OPTIONS));
+    public static void OpenMainMenu() => MainMenuEA?.Invoke(Instance, new(MainMenuEventArgs.EType.MAIN_MENU));
+    public static void OpenOptions() => MainMenuEA?.Invoke(Instance, new(MainMenuEventArgs.EType.MAIN_OPTIONS));
 
 
 
