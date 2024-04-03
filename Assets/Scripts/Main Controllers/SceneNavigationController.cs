@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneNavigationController : MonoBehaviour
+public class SceneNavigationController : MonoSingleton<SceneNavigationController>
 {
     //ENUMS
     #region ENUMS
