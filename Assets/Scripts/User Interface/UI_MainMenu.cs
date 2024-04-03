@@ -16,7 +16,7 @@ public class UI_MainMenu : MonoBehaviour
 
 
     //LIFECYCLE FUNCTIONS
-    void Start()
+    void Awake()
     {
         //LISTEN EVENTS
         UI_RaindropsMainMenu.MainMenuEA += HandleMainMenuEvent;

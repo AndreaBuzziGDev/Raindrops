@@ -28,7 +28,7 @@ public class UI_RaindropsMainMenu : MonoSingleton<UI_RaindropsMainMenu>
     // Start is called before the first frame update
     void Start()
     {
-        //TODO: AT THE START, THE UI IS INITIALIZED TO MAIN MENU VISUALIZATION
+        OnEscPressed(this, new());
     }
 
     private void OnEnable()
@@ -47,23 +47,12 @@ public class UI_RaindropsMainMenu : MonoSingleton<UI_RaindropsMainMenu>
 
     //INPUT EVENTS
     //EVENT-BASED INPUT IMPLEMENTATION
-    private void OnEscapePerformed(InputAction.CallbackContext value)
-    {
-        if(GameController.Instance.IsPlaying)
-            GameController.Instance.SetState(GameController.EGameState.Paused);
-        else if(!GameController.Instance.IsGameOver)
-            GameController.Instance.SetState(GameController.EGameState.Playing);
-    }
+    private void OnEscapePerformed(InputAction.CallbackContext value) => OnEscPressed(this, new());
 
     //FUNCTIONALITIES
 
 
-
-
     //UTILITIES
-
-
-
 
     
     //EVENT-FIRING METHOD

@@ -15,8 +15,7 @@ public class UI_MainOptions : MonoBehaviour
     
 
     //LIFECYCLE FUNCTIONS
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         //LISTEN EVENTS
         UI_RaindropsMainMenu.MainMenuEA += HandleMainMenuEvent;
