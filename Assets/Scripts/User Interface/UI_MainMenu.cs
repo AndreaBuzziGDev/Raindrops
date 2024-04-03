@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UI_MainMenu : MonoBehaviour
@@ -10,10 +11,21 @@ public class UI_MainMenu : MonoBehaviour
 
     //GAMEOBJECT REFERENCES
     [SerializeField] SceneNavigationController snc;//TODO: MAKE IT A MONOSINGLETON?
+    //TODO: ADD REFERENCES FOR PANEL STUFF
     
 
 
     //LIFECYCLE FUNCTIONS
+    void Start()
+    {
+        //LISTEN EVENTS
+        UI_RaindropsMainMenu.MainMenuEA += HandleMainMenuEvent;
+    }
+    void OnDestroy()
+    {
+        //UN-LISTEN EVENTS
+        UI_RaindropsMainMenu.MainMenuEA -= HandleMainMenuEvent;
+    }
     
 
     //FUNCTIONALITIES
@@ -31,4 +43,17 @@ public class UI_MainMenu : MonoBehaviour
     public void HandleQuit() => UtilsGeneric.QuitGame();
 
 
+    //EVENT HANDLING
+    public void HandleMainMenuEvent(object sender, MainMenuEventArgs e)
+    {
+        switch(e.EventType)
+        {
+            case MainMenuEventArgs.EType.MAIN_MENU:
+                //TODO: IMPLEMENT
+                break;
+            default:
+                //TODO: IMPLEMENT
+                break;
+        }
+    }
 }
