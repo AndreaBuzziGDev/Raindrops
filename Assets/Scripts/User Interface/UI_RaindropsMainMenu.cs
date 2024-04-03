@@ -16,19 +16,14 @@ public class UI_RaindropsMainMenu : MonoSingleton<UI_RaindropsMainMenu>
     public RaindropsAction InputPlayer { get { return inputPlayer; } }
 
 
-
-
     //PREFAB REFERENCES
-
-
-
 
 
     //LIFECYCLE FUNCTIONS
     // Start is called before the first frame update
     void Start()
     {
-        OnEscPressed(this, new());
+        OnMainMenuEA(this, new());
     }
 
     private void OnEnable()
@@ -47,15 +42,18 @@ public class UI_RaindropsMainMenu : MonoSingleton<UI_RaindropsMainMenu>
 
     //INPUT EVENTS
     //EVENT-BASED INPUT IMPLEMENTATION
-    private void OnEscapePerformed(InputAction.CallbackContext value) => OnEscPressed(this, new());
+    private void OnEscapePerformed(InputAction.CallbackContext value) => MainMenuEA?.Invoke(this, new());
 
     //FUNCTIONALITIES
+    public void OpenMainMenu() => MainMenuEA?.Invoke(this, new(MainMenuEventArgs.EType.MAIN_MENU));
+    public void OpenOptions() => MainMenuEA?.Invoke(this, new(MainMenuEventArgs.EType.MAIN_OPTIONS));
+
 
 
     //UTILITIES
 
     
     //EVENT-FIRING METHOD
-    public static void OnEscPressed(object sender, MainMenuEventArgs myEventArg) => MainMenuEA?.Invoke(sender, myEventArg);
+    public static void OnMainMenuEA(object sender, MainMenuEventArgs myEventArg) => MainMenuEA?.Invoke(sender, myEventArg);
 
 }
