@@ -9,7 +9,7 @@ public class UI_MainMenu : MonoBehaviour
 
 
     //GAMEOBJECT REFERENCES
-    [SerializeField] SceneNavigationController snc;
+    [SerializeField] SceneNavigationController snc;//TODO: MAKE IT A MONOSINGLETON?
 
 
     //LIFECYCLE FUNCTIONS
