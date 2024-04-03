@@ -29,7 +29,12 @@ public class UI_MainOptions : MonoBehaviour
 
 
     //FUNCTIONALITIES
-    ///GUI BUTTONS
+    //DROPDOWN MENUS
+    public void HandleDifficultyChange(int newValue) => UtilsPrefs.GameSettings.SetGameSpeed((UtilsPrefs.GameSettings.DIFFICULTY) newValue);
+    
+
+    //SLIDERS
+
     
 
     //EVENT HANDLING
