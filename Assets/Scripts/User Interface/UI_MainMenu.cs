@@ -11,7 +11,7 @@ public class UI_MainMenu : MonoBehaviour
 
     //GAMEOBJECT REFERENCES
     [SerializeField] SceneNavigationController snc;//TODO: MAKE IT A MONOSINGLETON?
-    [SerializeField] CanvasRenderer mainMenuPanel;
+    [SerializeField] Canvas mainMenuPanel;
     
 
 
