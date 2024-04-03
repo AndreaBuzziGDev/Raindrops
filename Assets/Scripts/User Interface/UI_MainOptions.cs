@@ -31,11 +31,15 @@ public class UI_MainOptions : MonoBehaviour
     //FUNCTIONALITIES
     //DROPDOWN MENUS
     public void HandleDifficultyChange(int newValue) => UtilsPrefs.GameSettings.SetGameSpeed((UtilsPrefs.GameSettings.DIFFICULTY) newValue);
-    
+
 
     //SLIDERS
 
-    
+
+
+    //BUTTONS
+    public void OpenMainMenu() => UI_RaindropsMainMenu.OpenMainMenu();
+
 
     //EVENT HANDLING
     public void HandleMainMenuEvent(object sender, MainMenuEventArgs e)
