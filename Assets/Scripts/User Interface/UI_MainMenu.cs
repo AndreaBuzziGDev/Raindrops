@@ -11,7 +11,7 @@ public class UI_MainMenu : MonoBehaviour
 
     //GAMEOBJECT REFERENCES
     [SerializeField] SceneNavigationController snc;//TODO: MAKE IT A MONOSINGLETON?
-    //TODO: ADD REFERENCES FOR PANEL STUFF
+    [SerializeField] CanvasRenderer mainMenuPanel;
     
 
 
@@ -34,6 +34,7 @@ public class UI_MainMenu : MonoBehaviour
 
     public void HandleOptions()
     {
+        //TODO: MAKE OPTIONS TRANSITION TO THE RIGHT MENU
         //...
 
     }
@@ -49,10 +50,10 @@ public class UI_MainMenu : MonoBehaviour
         switch(e.EventType)
         {
             case MainMenuEventArgs.EType.MAIN_MENU:
-                //TODO: IMPLEMENT
+                mainMenuPanel.gameObject.SetActive(true);
                 break;
             default:
-                //TODO: IMPLEMENT
+                mainMenuPanel.gameObject.SetActive(false);
                 break;
         }
     }
