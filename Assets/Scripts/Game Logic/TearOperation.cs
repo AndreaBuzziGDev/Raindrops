@@ -109,19 +109,21 @@ public class TearOperation : MonoBehaviour
         if(visible)
         {
             textNumberOne.text = myData.NumberOneValue.ToString();
-            textNumberTwo.text = myData.NumberTwoValue.ToString();
             textOperation.text = TearOperationData.dictionaryEOP[myData.Operation];
+            textNumberTwo.text = myData.NumberTwoValue.ToString();
         }
         else
         {
             textNumberOne.text = ">:y";
-            textNumberTwo.text = ">:c";
             textOperation.text = "?";
+            textNumberTwo.text = ">:c";
         }
     }
 
     private void HandleMovement()
     {
+        //TODO: GOLD OPERATIONS MOVE FASTER?
+        //TODO: REFACTOR
         if(debugMode){
             if(debugSpeedDifficulty)
                 transform.position = transform.position + (speedDiffCoeff * debugSpeed * Time.fixedDeltaTime * Vector3.down);
