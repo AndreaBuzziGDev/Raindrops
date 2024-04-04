@@ -34,12 +34,17 @@ public class TearController : MonoSingleton<TearController>
     //DATA METHODS
     public bool IsMaxConcurrentItems { get { return maxConcurrentItems <= concurrentItems; } }
     public bool IsGameOverCondition { get { return lives <= 0; } }
-    public int SpeedDifficultyValue { get { return speedDifficultyValue; } }
+
+    //DIFFICULTY COEFFICIENTS
+    Dictionary<int, float> speedCoefficientMapping = new()
+    {
+        {0, 1.0f},
+        {1, 1.25f},
+        {2, 1.5f}
+    };
+    public float SpeedDifficultyValue { get { return speedCoefficientMapping[speedDifficultyValue]; } }
 
 
-
-    
-    
     //PREFABS
     [SerializeField] TearOperation tearOpPrefab;
 
@@ -216,7 +221,4 @@ public class TearController : MonoSingleton<TearController>
                 return 0;
         }
     }
-
-
-
 }

@@ -13,7 +13,7 @@ public class TearOperation : MonoBehaviour
 
     //DATA
     [SerializeField] float trueSpeed = 1.0f;
-    int speedDifficultyValue = 1;//TODO: TAKE INTO ACCOUNT EVOLUTIONS ON TearController
+    float speedDiffCoeff = 1.0f;
 
     private TearOperationData myData;
     public TearOperationData TOData { get { return myData; } }
@@ -55,7 +55,7 @@ public class TearOperation : MonoBehaviour
             myData = new TearOperationData(TearOperationData.GetRandomNumberOne(randomOp), TearOperationData.GetRandomNumberOne(randomOp), randomOp);
         
         //TODO: TAKE INTO ACCOUNT EVOLUTIONS ON TearController
-        speedDifficultyValue = TearController.Instance.SpeedDifficultyValue;
+        speedDiffCoeff = TearController.Instance.SpeedDifficultyValue;
 
         //SETS THE VISUAL CONTENT OF THE PREFAB
         SetContent();
@@ -69,11 +69,11 @@ public class TearOperation : MonoBehaviour
             //TODO: THIS REALLY SHOULD EVOLVE IN ITS OWN DEDICATED FUNCTIONALITY
             if(debugMode){
                 if(debugSpeedDifficulty)
-                    transform.position = transform.position + speedDifficultyValue * debugSpeed * Time.fixedDeltaTime * Vector3.down;
+                    transform.position = transform.position + (speedDiffCoeff * debugSpeed * Time.fixedDeltaTime * Vector3.down);
                 else
-                    transform.position = transform.position + debugSpeed * Time.fixedDeltaTime * Vector3.down;
+                    transform.position = transform.position + (debugSpeed * Time.fixedDeltaTime * Vector3.down);
             } else {
-                transform.position = transform.position + speedDifficultyValue * trueSpeed * Time.fixedDeltaTime * Vector3.down;
+                transform.position = transform.position + (speedDiffCoeff * trueSpeed * Time.fixedDeltaTime * Vector3.down);
             }
         }
         else
