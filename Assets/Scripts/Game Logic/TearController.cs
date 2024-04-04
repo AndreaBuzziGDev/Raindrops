@@ -8,12 +8,11 @@ public class TearController : MonoSingleton<TearController>
 {
     //DATA
     
+    //TODO: SEPARATE IN SECTIONS IN THE EDITOR THESE THINGS
     //GAMEPLAY SETTINGS
     [SerializeField] int maxConcurrentItems = 3;
     [SerializeField] int maxItemsPerSpawnIteration = 1;
     [SerializeField] float maxSpawnIterationCooldown = 1.0f;
-
-    //TODO: SEPARATE IN SECTIONS IN THE EDITOR THESE THINGS
     [SerializeField] int maxLives = 3;
 
 
