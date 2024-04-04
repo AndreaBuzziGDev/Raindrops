@@ -27,30 +27,22 @@ public class TearController : MonoSingleton<TearController>
     //SAVE-RELATED STATS
     float existingHighScore;
 
-    //TODO: THIS PROBABLY SHOULD RELY UPON A DEDICATED DIFFICULTY-HANDLING SCRIPT
-    int gameDifficultyValue;
-
-
     //DATA METHODS
     public bool IsMaxConcurrentItems { get { return maxConcurrentItems <= concurrentItems; } }
     public bool IsGameOverCondition { get { return lives <= 0; } }
 
+
+
+
     //DIFFICULTY COEFFICIENTS
+    int gameDifficultyValue;
+    [SerializeField] List<DifficultySettingSO> difficultySettings = new ();
+
     //NB: THESE COULD BE EVOLVED WITH SCRIPTABLEOBJECTS
-    Dictionary<int, float> speedCoefficientMapping = new()
-    {
-        {0, 1.0f},
-        {1, 1.5f},
-        {2, 2.0f}
-    };
+    Dictionary<int, float> speedCoefficientMapping = new();
     public float SpeedDifficultyValue { get { return speedCoefficientMapping[gameDifficultyValue]; } }
 
-    Dictionary<int, float> scoreCoefficientMapping = new()
-    {
-        {0, 1.0f},
-        {1, 1.25f},
-        {2, 1.5f}
-    };
+    Dictionary<int, float> scoreCoefficientMapping = new();
     public float ScoreDifficultyCoefficient { get { return scoreCoefficientMapping[gameDifficultyValue]; } }
 
 
@@ -81,6 +73,7 @@ public class TearController : MonoSingleton<TearController>
         
         //INITIALIZE DIFFICULTY SETTINGS
         gameDifficultyValue = UtilsPrefs.GameSettings.GetGameSpeed();
+        InitializeDifficultyMapping();
 
         //INITIALIZE GAME SCORE
         SaveGameStats sgs = (SaveGameStats) UtilsSave.LoadSave(SaveController.defaultGameStatsName);
@@ -125,6 +118,7 @@ public class TearController : MonoSingleton<TearController>
 
 
     //EVENT HANDLING
+    //TODO: SHOULD THIS BE PRIVATE INSTEAD?
     public void HandleTearEvent(object sender, TearEventArgs e)
     {
         //LOSS
@@ -139,7 +133,6 @@ public class TearController : MonoSingleton<TearController>
 
 
     //FUNCTIONALITIES
-    //TODO: MIGHT HAVE SENSE TO RETURN THE SPAWNED TEAR
     private void SpawnTear()
     {
         //TODO: MIGHT NEED TO PICK FROM OBJECT POOL
@@ -204,6 +197,27 @@ public class TearController : MonoSingleton<TearController>
     }
 
 
+    private void InitializeDifficultyMapping()
+    {
+        //NB: EVOLVE TO HANDLE MISSING DIFFICULTIES IN SETTINGS?
+        if(difficultySettings.Count > 0)
+        {
+            foreach(DifficultySettingSO dsSO in difficultySettings)
+            {
+                speedCoefficientMapping.Add((int) dsSO.DifficultyValue, dsSO.SpeedCoefficient);
+                scoreCoefficientMapping.Add((int) dsSO.DifficultyValue, dsSO.ScoreCoefficient);
+            }
+        }
+        else 
+        {
+            foreach (int i in Enum.GetValues(typeof(UtilsPrefs.GameSettings.DIFFICULTY)))
+            {
+                speedCoefficientMapping.Add(i, 1);
+                scoreCoefficientMapping.Add(i, 1);
+            }
+            Debug.LogError("NO DIFFICULTY SETTINGS, DEFAULTING TO 1x FOR EACH DIFFICULTY");
+        }
+    }
 
 
 
