@@ -28,7 +28,7 @@ public class TearController : MonoSingleton<TearController>
     int existingHighScore;
 
     //TODO: THIS PROBABLY SHOULD RELY UPON A DEDICATED DIFFICULTY-HANDLING SCRIPT
-    int speedDifficultyValue;
+    int gameDifficultyValue;
 
 
     //DATA METHODS
@@ -36,14 +36,22 @@ public class TearController : MonoSingleton<TearController>
     public bool IsGameOverCondition { get { return lives <= 0; } }
 
     //DIFFICULTY COEFFICIENTS
-    //NB: THIS COULD BE EVOLVED WITH SCRIPTABLEOBJECTS
+    //NB: THESE COULD BE EVOLVED WITH SCRIPTABLEOBJECTS
     Dictionary<int, float> speedCoefficientMapping = new()
+    {
+        {0, 1.0f},
+        {1, 1.5f},
+        {2, 2.0f}
+    };
+    public float SpeedDifficultyValue { get { return speedCoefficientMapping[gameDifficultyValue]; } }
+
+    Dictionary<int, float> scoreCoefficientMapping = new()
     {
         {0, 1.0f},
         {1, 1.25f},
         {2, 1.5f}
     };
-    public float SpeedDifficultyValue { get { return speedCoefficientMapping[speedDifficultyValue]; } }
+    public float ScoreDifficultyCoefficient { get { return scoreCoefficientMapping[gameDifficultyValue]; } }
 
 
     //PREFABS
@@ -72,7 +80,7 @@ public class TearController : MonoSingleton<TearController>
         UI_RaindropsGame.Instance.SetLives(lives);
         
         //INITIALIZE DIFFICULTY SETTINGS
-        speedDifficultyValue = UtilsPrefs.GameSettings.GetGameSpeed();
+        gameDifficultyValue = UtilsPrefs.GameSettings.GetGameSpeed();
 
         //INITIALIZE GAME SCORE
         SaveGameStats sgs = (SaveGameStats) UtilsSave.LoadSave(SaveController.defaultGameStatsName);
