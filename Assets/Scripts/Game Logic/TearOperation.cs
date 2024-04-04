@@ -30,12 +30,10 @@ public class TearOperation : MonoBehaviour
 
 
 
-
     //PREFAB REFERENCES
     [SerializeField] private TMP_Text textNumberOne;
     [SerializeField] private TMP_Text textNumberTwo;
     [SerializeField] private TMP_Text textOperation;
-
 
 
 
@@ -80,7 +78,6 @@ public class TearOperation : MonoBehaviour
         //UN-LISTEN EVENTS
         UI_RaindropsGame.ResultInput -= HandleResultInput;
     }
-    
 
 
 
@@ -94,7 +91,6 @@ public class TearOperation : MonoBehaviour
             OnTearSolved(myTearLostEvent);
         }
     }
-
 
 
 
