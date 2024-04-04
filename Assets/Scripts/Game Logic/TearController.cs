@@ -142,19 +142,10 @@ public class TearController : MonoSingleton<TearController>
         spawnIterationCooldown = maxSpawnIterationCooldown;
     }
 
-    //TODO: BOTH SOLVE AND DESTROY SHOULD NOT INSTANTIATE ONE IMMEDIATELY BUT RATHER QUEUE AN INSTANTIATION IN THE POOLER
     private void DestroyTear(TearOperation toDestroy)
     {
         Vector3 tearPosition = toDestroy.transform.position;
         Debug.Log("Destroy Tear at Position: " + tearPosition);
-        
-        //TODO: PART OF THIS LOGIC PROBABLY CAN BE SIMPLIFIED AND METHOD MADE MORE API-FIED
-        
-        //TODO: MIGHT NEED TO COLLECT DATA ON THE DESTROYED OBJECT FOR POOLING PURPOSES
-
-
-        //TODO: ENQUEUE THE SPAWN
-
 
         //TODO: HANDLE AN EFFECT FOR TEAR DESTRUCTION (SPRITE ANIMATION, PARTICLE EFFECT...)
 
@@ -185,7 +176,7 @@ public class TearController : MonoSingleton<TearController>
             existingHighScore = score;
             SaveGameStats sgs = new(SaveController.defaultGameStatsName, existingHighScore);
             UtilsSave.CreateSave(sgs.FileName, sgs);
-            //TODO: MARK ON UI SO THAT NEW HIGH SCORE IS KNOWN
+            //NB: MARK ON UI SO THAT NEW HIGH SCORE IS KNOWN
             //...
         }
 

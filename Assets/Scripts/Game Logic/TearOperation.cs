@@ -58,27 +58,20 @@ public class TearOperation : MonoBehaviour
         speedDiffCoeff = TearController.Instance.SpeedDifficultyValue;
 
         //SETS THE VISUAL CONTENT OF THE PREFAB
-        SetContent();
+        SetVisibleContent();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //TODO: SHOULD LISTEN FOR ESC PRESS INSTEAD OF SETTING VISIBLE CONTENT OR AN EQUIVALENT?
         if(GameController.Instance.IsPlaying){
-            //TODO: THIS REALLY SHOULD EVOLVE IN ITS OWN DEDICATED FUNCTIONALITY
-            if(debugMode){
-                if(debugSpeedDifficulty)
-                    transform.position = transform.position + (speedDiffCoeff * debugSpeed * Time.fixedDeltaTime * Vector3.down);
-                else
-                    transform.position = transform.position + (debugSpeed * Time.fixedDeltaTime * Vector3.down);
-            } else {
-                transform.position = transform.position + (speedDiffCoeff * trueSpeed * Time.fixedDeltaTime * Vector3.down);
-            }
+            SetVisibleContent();
+            HandleMovement();
         }
         else
         {
-            //TODO: MAKE TEARS OR THEIR CONTENT INVISIBLE WHEN THE GAME IS PAUSED
-            
+            SetVisibleContent(false);
         }
     }
 
@@ -106,13 +99,33 @@ public class TearOperation : MonoBehaviour
 
 
     //FUNCTIONALITIES
-    private void SetContent()
+    private void SetVisibleContent(bool visible = true)
     {
-        textNumberOne.text = myData.NumberOneValue.ToString();
-        textNumberTwo.text = myData.NumberTwoValue.ToString();
-        textOperation.text = TearOperationData.dictionaryEOP[myData.Operation];
+        if(visible)
+        {
+            textNumberOne.text = myData.NumberOneValue.ToString();
+            textNumberTwo.text = myData.NumberTwoValue.ToString();
+            textOperation.text = TearOperationData.dictionaryEOP[myData.Operation];
+        }
+        else
+        {
+            textNumberOne.text = ">:y";
+            textNumberTwo.text = "?";
+            textOperation.text = ">:C";
+        }
     }
 
+    private void HandleMovement()
+    {
+        if(debugMode){
+            if(debugSpeedDifficulty)
+                transform.position = transform.position + (speedDiffCoeff * debugSpeed * Time.fixedDeltaTime * Vector3.down);
+            else
+                transform.position = transform.position + (debugSpeed * Time.fixedDeltaTime * Vector3.down);
+        } else {
+            transform.position = transform.position + (speedDiffCoeff * trueSpeed * Time.fixedDeltaTime * Vector3.down);
+        }
+    }
 
 
 
