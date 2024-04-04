@@ -47,6 +47,7 @@ public class TearController : MonoSingleton<TearController>
 
     //PREFABS
     [SerializeField] TearOperation tearOpPrefab;
+    [SerializeField] TearOperation goldOpPrefab;
 
 
 
@@ -129,6 +130,7 @@ public class TearController : MonoSingleton<TearController>
     private void SpawnTear()
     {
         Vector3 newPosition = TearOperationSpawner.Instance.GetRandomPosition();
+        //TODO: RANDOMIZE BETWEEN NORMAL AND GOLD OPERATION
         Instantiate(tearOpPrefab, newPosition, Quaternion.identity);
         concurrentItems++;
         spawnIterationCooldown = maxSpawnIterationCooldown;
