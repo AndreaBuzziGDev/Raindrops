@@ -128,7 +128,6 @@ public class TearController : MonoSingleton<TearController>
     //FUNCTIONALITIES
     private void SpawnTear()
     {
-        //TODO: MIGHT NEED TO PICK FROM OBJECT POOL
         Vector3 newPosition = TearOperationSpawner.Instance.GetRandomPosition();
         Instantiate(tearOpPrefab, newPosition, Quaternion.identity);
         concurrentItems++;
