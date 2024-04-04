@@ -846,7 +846,7 @@ GameObject:
   - component: {fileID: 7450442287644794088}
   - component: {fileID: 5987933400947877699}
   m_Layer: 5
-  m_Name: Difficulty Setting
+  m_Name: Difficulty Dropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2971,6 +2971,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   optionsMenuPanel: {fileID: 1045612992244625248}
+  difficultyDropDown: {fileID: 5987933400947877699}
+  musicVolumeSlider: {fileID: 1487694808416108693}
+  soundFXVolumeSlider: {fileID: 2531185883523880705}
 --- !u!1 &5983885017002910457
 GameObject:
   m_ObjectHideFlags: 0
