@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 //NB: THIS SCRIPT (AS WELL AS UI_MainMenu) CAN BE REFACTORED WITH A COMMON PARENT TO ALLOW CONFIGURATION TO BE MUCH MORE ADAPTABLE AND SIMPLIFIED
 public class UI_MainOptions : MonoBehaviour
@@ -11,6 +13,11 @@ public class UI_MainOptions : MonoBehaviour
 
     //GAMEOBJECT REFERENCES
     [SerializeField] Canvas optionsMenuPanel;
+
+    [SerializeField] TMP_Dropdown difficultyDropDown;
+    [SerializeField] Slider musicVolumeSlider;
+    [SerializeField] Slider soundFXVolumeSlider;
+
     
     
 
@@ -31,10 +38,14 @@ public class UI_MainOptions : MonoBehaviour
     //FUNCTIONALITIES
     private void RefreshView()
     {
-        //TODO: PRE-SELECT VALUES
+        //PRE-LOADING VALUES
+        difficultyDropDown.value = UtilsPrefs.GameSettings.GetGameSpeed();
 
-        //TODO: PRE-ADJUST SLIDERS
-        
+        //TODO: LOAD VALUES FROM PLAYERPREFS ONCE IMPLEMENTED
+        musicVolumeSlider.value = 1;
+        soundFXVolumeSlider.value = 1;
+
+        Debug.Log("RefreshView");
     }
 
 
