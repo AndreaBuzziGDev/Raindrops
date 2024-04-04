@@ -6,9 +6,9 @@ using UnityEngine;
 public class SaveGameStats : SaveData
 {
     //DATA-ONLY CLASS...
-    protected int highScore;
+    protected float highScore;
 
-    public int HighScore
+    public float HighScore
     {
         get { return highScore; }
         set
@@ -21,7 +21,7 @@ public class SaveGameStats : SaveData
     }
     
     //CONSTRUCTOR
-    public SaveGameStats(string fileName, int highScore)
+    public SaveGameStats(string fileName, float highScore)
     {
         this.fileName = fileName;
         this.highScore = highScore;
