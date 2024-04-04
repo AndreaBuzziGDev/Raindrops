@@ -136,16 +136,18 @@ public class TearOperation : MonoBehaviour
 
     private void HandleMovement()
     {
-        //TODO: GOLD OPERATIONS MOVE FASTER?
-        //TODO: REFACTOR
+        Vector3 translation;
         if(debugMode){
             if(debugSpeedDifficulty)
-                transform.position = transform.position + (speedDiffCoeff * debugSpeed * Time.fixedDeltaTime * Vector3.down);
+                translation = speedDiffCoeff * debugSpeed * Time.fixedDeltaTime * Vector3.down;
             else
-                transform.position = transform.position + (debugSpeed * Time.fixedDeltaTime * Vector3.down);
+                translation = debugSpeed * Time.fixedDeltaTime * Vector3.down;
         } else {
-            transform.position = transform.position + (speedDiffCoeff * trueSpeed * Time.fixedDeltaTime * Vector3.down);
+            translation = speedDiffCoeff * trueSpeed * Time.fixedDeltaTime * Vector3.down;
         }
+
+        //GOLDEN OPERATION SPEED IS FIXED?
+        transform.position += (tearType == ETearType.GOLD) ? 1.1f * translation : translation;
     }
 
 
