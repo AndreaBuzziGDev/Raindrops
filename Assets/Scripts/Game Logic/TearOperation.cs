@@ -54,7 +54,7 @@ public class TearOperation : MonoBehaviour
         else
             myData = new TearOperationData(TearOperationData.GetRandomNumberOne(randomOp), TearOperationData.GetRandomNumberOne(randomOp), randomOp);
         
-        //TODO: TAKE INTO ACCOUNT EVOLUTIONS ON TearController
+        //DIFFICULTY SETTING
         speedDiffCoeff = TearController.Instance.SpeedDifficultyValue;
 
         //SETS THE VISUAL CONTENT OF THE PREFAB
