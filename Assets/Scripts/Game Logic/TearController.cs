@@ -7,7 +7,6 @@ using System.Linq;
 public class TearController : MonoSingleton<TearController>
 {
     //DATA
-    //TODO: SHOULD CONTAIN DATA STRUCTURES FOR HANDLING POOLING AND OTHER STUFF
     
     //GAMEPLAY SETTINGS
     [SerializeField] int maxConcurrentItems = 3;
@@ -78,16 +77,11 @@ public class TearController : MonoSingleton<TearController>
         //INITIALIZE GAME SCORE
         SaveGameStats sgs = (SaveGameStats) UtilsSave.LoadSave(SaveController.defaultGameStatsName);
         existingHighScore = sgs==null ? 0 : sgs.HighScore;
-        Debug.Log("existingHighScore: " + existingHighScore);
-
-        //TODO: THIS SHOULD START WITH POOLED OPERATIONS
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //TODO: THIS SHOULD HANDLE POOLING OF OBJECTS
         
         //TODO: COULD THIS PART BE A METHOD?
         if(spawnIterationCooldown > 0){
@@ -118,8 +112,7 @@ public class TearController : MonoSingleton<TearController>
 
 
     //EVENT HANDLING
-    //TODO: SHOULD THIS BE PRIVATE INSTEAD?
-    public void HandleTearEvent(object sender, TearEventArgs e)
+    private void HandleTearEvent(object sender, TearEventArgs e)
     {
         //LOSS
         if(e.EventType == TearEventArgs.EType.LOSS) DestroyTear(e.LostTear);
