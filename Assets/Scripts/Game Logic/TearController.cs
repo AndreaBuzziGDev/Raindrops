@@ -14,6 +14,7 @@ public class TearController : MonoSingleton<TearController>
     [SerializeField] int maxItemsPerSpawnIteration = 1;
     [SerializeField] float maxSpawnIterationCooldown = 1.0f;
     [SerializeField] int maxLives = 3;
+    [Range(0, 100)][SerializeField] int goldChance = 10;
 
 
     //GAMEPLAY STATS
@@ -128,9 +129,16 @@ public class TearController : MonoSingleton<TearController>
     //FUNCTIONALITIES
     private void SpawnTear()
     {
-        Vector3 newPosition = TearOperationSpawner.Instance.GetRandomPosition();
-        //TODO: RANDOMIZE BETWEEN NORMAL AND GOLD OPERATION
-        Instantiate(tearOpPrefab, newPosition, Quaternion.identity);
+        //RANDOM GOLD OR NOT
+        int goldenInt = UnityEngine.Random.Range(0, 100);
+        TearOperation prefabToInstantiate = goldenInt > goldChance ? tearOpPrefab : goldOpPrefab;
+
+        //INSTANTIATE TearOperation
+        Instantiate(
+            prefabToInstantiate, 
+            TearOperationSpawner.Instance.GetRandomPosition(), 
+            Quaternion.identity
+        );
         concurrentItems++;
         spawnIterationCooldown = maxSpawnIterationCooldown;
     }
