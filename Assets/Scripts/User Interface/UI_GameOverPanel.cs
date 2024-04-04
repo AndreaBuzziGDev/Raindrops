@@ -8,7 +8,7 @@ public class UI_GameOverPanel : MonoBehaviour
 
 
     //GAMEOBJECT REFERENCES
-    [SerializeField] CanvasRenderer gameOverCanvas;//TODO: USE TO ADDRESS VISIBILITY
+    [SerializeField] CanvasRenderer gameOverCanvas;
 
 
     //LIFECYCLE FUNCTIONS

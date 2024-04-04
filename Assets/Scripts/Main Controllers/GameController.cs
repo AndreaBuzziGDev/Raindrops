@@ -88,9 +88,6 @@ public class GameController : MonoSingleton<GameController>
 
 
     //STAGE-TRANSITION FUNCTIONALITIES
-    //TODO: IMPLEMENT MISSING FUNCTIONALITIES
-
-
 
     //RESTART GAME
     private static void RestartGame() => SceneNavigationController.Instance.LoadScene(SceneNavigationController.eSceneName.RaindropsGame);

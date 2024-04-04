@@ -65,7 +65,6 @@ public class TearOperation : MonoBehaviour
     void FixedUpdate()
     {
         if(GameController.Instance.IsPlaying){
-            //TODO: A TEARCONTROLLER % BONUS MULTIPLIER
             //TODO: THIS REALLY SHOULD EVOLVE IN ITS OWN DEDICATED FUNCTIONALITY
             if(debugMode){
                 if(debugSpeedDifficulty)
