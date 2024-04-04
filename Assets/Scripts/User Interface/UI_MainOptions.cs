@@ -41,7 +41,7 @@ public class UI_MainOptions : MonoBehaviour
         //PRE-LOADING VALUES
         difficultyDropDown.value = UtilsPrefs.GameSettings.GetGameSpeed();
 
-        //TODO: LOAD VALUES FROM PLAYERPREFS ONCE IMPLEMENTED
+        //TODO: LOAD VALUES FROM PLAYERPREFS ONCE AUDIO SETTINGS HAVE BEEN IMPLEMENTED
         musicVolumeSlider.value = 1;
         soundFXVolumeSlider.value = 1;
 

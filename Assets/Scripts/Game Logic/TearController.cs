@@ -64,9 +64,11 @@ public class TearController : MonoSingleton<TearController>
         lives = maxLives;
         UI_RaindropsGame.Instance.SetScore(score);
         UI_RaindropsGame.Instance.SetLives(lives);
-
+        
+        //INITIALIZE DIFFICULTY SETTINGS
         speedDifficultyValue = UtilsPrefs.GameSettings.GetGameSpeed();
 
+        //INITIALIZE GAME SCORE
         SaveGameStats sgs = (SaveGameStats) UtilsSave.LoadSave(SaveController.defaultGameStatsName);
         existingHighScore = sgs==null ? 0 : sgs.HighScore;
         Debug.Log("existingHighScore: " + existingHighScore);
