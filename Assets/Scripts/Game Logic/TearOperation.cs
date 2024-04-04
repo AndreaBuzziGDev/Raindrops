@@ -7,11 +7,20 @@ using System;
 
 public class TearOperation : MonoBehaviour
 {
+    //ENUMS
+    public enum ETearType
+    {
+        NORMAL,
+        GOLD
+    }
+
+
     //EVENTS
     public static event EventHandler<TearEventArgs> TearSolved;
 
 
     //DATA
+    [SerializeField] ETearType tearType = ETearType.NORMAL;
     [SerializeField] float trueSpeed = 1.0f;
     float speedDiffCoeff = 1.0f;
 
