@@ -36,6 +36,7 @@ public class TearController : MonoSingleton<TearController>
     public bool IsGameOverCondition { get { return lives <= 0; } }
 
     //DIFFICULTY COEFFICIENTS
+    //NB: THIS COULD BE EVOLVED WITH SCRIPTABLEOBJECTS
     Dictionary<int, float> speedCoefficientMapping = new()
     {
         {0, 1.0f},
