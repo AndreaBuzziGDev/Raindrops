@@ -46,8 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxConcurrentItems: 3
   maxItemsPerSpawnIteration: 1
-  itemsAtSpawn: 2
   maxSpawnIterationCooldown: 1
+  maxLives: 3
+  difficultySettings:
+  - {fileID: 11400000, guid: 3e58ef3f952ca55429108698a035c7a3, type: 2}
+  - {fileID: 11400000, guid: 6f09a03fc2dcf924f8242eb5aca81386, type: 2}
+  - {fileID: 11400000, guid: 3f767d17c3d103d45a94c771cf4fc72f, type: 2}
   tearOpPrefab: {fileID: 1997937786787309842, guid: fe5bb8dde11caac439e7ec49186751eb, type: 3}
 --- !u!1 &6018445561972314193
 GameObject:
@@ -223,4 +227,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2cf7440d1873748b2ceeb4045a9564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SNC: {fileID: 0}
