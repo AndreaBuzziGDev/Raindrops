@@ -98,5 +98,24 @@ public class TearOperationData
     {
         return GetRandomNumberOne(operation);
     }
+
+    //NB: THIS CANNOT BE EASILY SET FROM A SCRIPTABLE OBJECT BECAUSE THIS IS NOT MONOBEHAVIOUR. NEEDS SOME "WIRING" TO WORK.
+    public int GetTearScore()
+    {
+        switch (operation)
+        {
+            case EOperation.SUM:
+                return 1;
+            case EOperation.DIFFERENCE:
+                return 2;
+            case EOperation.MULTIPLICATION:
+                return 5;
+            case EOperation.DIVISION:
+                return 2;
+            default:
+                Debug.LogError("Invalid operation value has been provided");
+                return 0;
+        }
+    }
     
 }

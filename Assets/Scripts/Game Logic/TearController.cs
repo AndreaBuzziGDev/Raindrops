@@ -167,7 +167,7 @@ public class TearController : MonoSingleton<TearController>
         //TODO: HANDLE AN EFFECT FOR TEAR SOLUTION (SPRITE ANIMATION, PARTICLE EFFECT...)
 
         //HANDLE SCORE
-        score += ScoreDifficultyCoefficient * GetTearScore(solvedTear);
+        score += ScoreDifficultyCoefficient * solvedTear.TOData.GetTearScore();
         UI_RaindropsGame.Instance.SetScore(score);
         if(score > existingHighScore)
         {
@@ -205,29 +205,6 @@ public class TearController : MonoSingleton<TearController>
                 scoreCoefficientMapping.Add(i, 1);
             }
             Debug.LogError("NO DIFFICULTY SETTINGS, DEFAULTING TO 1x FOR EACH DIFFICULTY");
-        }
-    }
-
-
-
-
-    //UTILITIES
-    //TODO: EVALUATE IF THIS HAS TO BE MOVED SOMEWHERE ELSE (EG: STATIC METHOD ON TearOperationData?)
-    public static int GetTearScore(TearOperation tear)
-    {
-        switch (tear.TOData.Operation)
-        {
-            case TearOperationData.EOperation.SUM:
-                return 1;
-            case TearOperationData.EOperation.DIFFERENCE:
-                return 2;
-            case TearOperationData.EOperation.MULTIPLICATION:
-                return 5;
-            case TearOperationData.EOperation.DIVISION:
-                return 2;
-            default:
-                Debug.LogError("Invalid operation value has been provided");
-                return 0;
         }
     }
 }
