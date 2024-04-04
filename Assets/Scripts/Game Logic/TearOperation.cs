@@ -54,6 +54,9 @@ public class TearOperation : MonoBehaviour
         //LISTEN TO EVENTS
         UI_RaindropsGame.ResultInput += HandleResultInput;
 
+        //LISTENS TO OWN-EVENT FOR HANDLING GOLDEN SOLUTIONS
+        TearSolved += HandleGoldenSolution;
+
         //SETTING DATA
         TearOperationData.EOperation randomOp = TearOperationData.GetRandomOperation();
         if(debugMode)
@@ -86,6 +89,7 @@ public class TearOperation : MonoBehaviour
     {
         //UN-LISTEN EVENTS
         UI_RaindropsGame.ResultInput -= HandleResultInput;
+        TearSolved -= HandleGoldenSolution;
     }
 
 
@@ -95,6 +99,16 @@ public class TearOperation : MonoBehaviour
     {
         //IF RESULT CORRECT = FIRE SOLUTION EVENT
         if(e.InputValue == this.myData.Result)
+        {
+            TearEventArgs myTearLostEvent = new(this, TearEventArgs.EType.SUCCESS);
+            OnTearSolved(myTearLostEvent);
+        }
+    }
+
+    public void HandleGoldenSolution(object sender, TearEventArgs e)
+    {
+        //GOLD TEARS DON'T EXPLODE FOR GOLD TEARS
+        if(tearType != ETearType.GOLD && e.LostTear.tearType == ETearType.GOLD)
         {
             TearEventArgs myTearLostEvent = new(this, TearEventArgs.EType.SUCCESS);
             OnTearSolved(myTearLostEvent);
