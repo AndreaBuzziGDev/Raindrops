@@ -21,11 +21,11 @@ public class TearController : MonoSingleton<TearController>
     //GAMEPLAY STATS
     int concurrentItems;
     float spawnIterationCooldown;
-    int score;
+    float score;
     int lives;
 
     //SAVE-RELATED STATS
-    int existingHighScore;
+    float existingHighScore;
 
     //TODO: THIS PROBABLY SHOULD RELY UPON A DEDICATED DIFFICULTY-HANDLING SCRIPT
     int gameDifficultyValue;
@@ -182,13 +182,10 @@ public class TearController : MonoSingleton<TearController>
 
     private void SolveTear(TearOperation solvedTear)
     {
-        //TODO: SHOULD PROBABLY CALL GameController TO HANDLE SCORE AND STUFF?
-        Debug.Log("Solved Tear: " + solvedTear.gameObject.name);
-
         //TODO: HANDLE AN EFFECT FOR TEAR SOLUTION (SPRITE ANIMATION, PARTICLE EFFECT...)
 
         //HANDLE SCORE
-        score += GetTearScore(solvedTear);
+        score += (GetTearScore(solvedTear) * ScoreDifficultyCoefficient);
         UI_RaindropsGame.Instance.SetScore(score);
         if(score > existingHighScore)
         {

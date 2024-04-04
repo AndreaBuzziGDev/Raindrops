@@ -113,7 +113,7 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
 
 
     //UTILITIES
-    public void SetScore(int newScore) => textScore.text = newScore.ToString();
+    public void SetScore(float newScore) => textScore.text = newScore.ToString();
     public void SetLives(int newLives) => textLives.text = newLives.ToString();
 
 
