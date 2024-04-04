@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tearType: 1
-  trueSpeed: 1
+  trueSpeed: 1.2
   debugMode: 0
   debugSpeed: 1
   debugSpeedDifficulty: 0
