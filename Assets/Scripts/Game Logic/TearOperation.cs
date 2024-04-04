@@ -146,8 +146,7 @@ public class TearOperation : MonoBehaviour
             translation = speedDiffCoeff * trueSpeed * Time.fixedDeltaTime * Vector3.down;
         }
 
-        //GOLDEN OPERATION SPEED IS FIXED?
-        transform.position += (tearType == ETearType.GOLD) ? 1.1f * translation : translation;
+        transform.position += translation;
     }
 
 
