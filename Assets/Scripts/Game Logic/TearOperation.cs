@@ -115,8 +115,8 @@ public class TearOperation : MonoBehaviour
         else
         {
             textNumberOne.text = ">:y";
-            textNumberTwo.text = "?";
-            textOperation.text = ">:C";
+            textNumberTwo.text = ">:c";
+            textOperation.text = "?";
         }
     }
 
