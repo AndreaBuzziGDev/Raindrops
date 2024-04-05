@@ -14,7 +14,6 @@ public class TearEventArgs : EventArgs
 
 
     //DATA
-    //TODO: CHANGE VARIABLE NAME TO affectedTear OR SOMETHING
     private TearOperation affectedTear;
     public TearOperation AffectedTear { get { return affectedTear; } }
 
