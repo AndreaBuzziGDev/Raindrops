@@ -36,7 +36,7 @@ public class ParticleOrchestrationController : MonoSingleton<ParticleOrchestrati
         ParticleSystem go = Instantiate(toSpawn);
         go.transform.position = position;
 
-        Destroy(go, duration);
+        Destroy(go.gameObject, duration);
     }
 
 
