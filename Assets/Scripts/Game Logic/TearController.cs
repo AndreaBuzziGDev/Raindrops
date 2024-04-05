@@ -176,7 +176,6 @@ public class TearController : MonoSingleton<TearController>
         UI_RaindropsGame.Instance.SetScore(score);
         if(score > existingHighScore)
         {
-            //TODO: IMPROVE SAVE CONDITION (DON'T KEEP SPAMMING SAVES ON DISC)
             Debug.Log("new highScore: " + score);
             existingHighScore = score;
             SaveGameStats sgs = new(SaveController.defaultGameStatsName, existingHighScore);
