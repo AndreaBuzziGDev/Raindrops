@@ -10,6 +10,8 @@ public class ParticleOrchestrationController : MonoSingleton<ParticleOrchestrati
 
 
     //PREFABS
+    [SerializeField] ParticleSystem tearSolutionNormal;
+    [SerializeField] ParticleSystem tearSolutionGold;
 
 
 
@@ -18,10 +20,47 @@ public class ParticleOrchestrationController : MonoSingleton<ParticleOrchestrati
     void Start()
     {
         //REGISTER EVENTS
-        
+        TearOperation.TearSolved += HandleSolutionParticles;
     }
 
+    void OnDestroy()
+    {
+        TearOperation.TearSolved -= HandleSolutionParticles;
+    }
+
+
+
     //FUNCTIONALITIES
+    private void SpawnParticlesAutoDestroy(ParticleSystem toSpawn, string name = "Orchestrated Particle", float duration = 5)
+    {
+        GameObject go = new GameObject(name);
+        var ps = go.AddComponent<ParticleSystem>();
+        go.SetActive(true);
+        Destroy(go, duration);
+    }
+
+
+
+    //EVENT HANDLING
+    //NB: THIS COULD BE A GREAT USE-CASE FOR OBJECT POOLING
+    public void HandleSolutionParticles(object sender, TearEventArgs e)
+    {
+        ParticleSystem toSpawn;
+        switch(e.AffectedTear.TearType)
+        {
+            case TearOperation.ETearType.GOLD:
+                //
+                toSpawn = tearSolutionGold;
+                break;
+            default:
+                //
+                toSpawn = tearSolutionNormal;
+                break;
+        }
+
+        //SPAWN PARTICLES
+        SpawnParticlesAutoDestroy(toSpawn, "Tear Solution Particles");
+    }
     
 
 }
