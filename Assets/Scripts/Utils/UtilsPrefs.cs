@@ -7,7 +7,13 @@ public static class UtilsPrefs
 {
     public static class Options
     {
-        public static void SetVolume(float value)
+        public static void SetVolumeMusic(float value)
+        {
+            //TODO: EVENTUALLY IMPLEMENT THIS
+
+        }
+
+        public static void SetVolumeEffects(float value)
         {
             //TODO: EVENTUALLY IMPLEMENT THIS
 
