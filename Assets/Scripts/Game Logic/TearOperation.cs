@@ -46,9 +46,6 @@ public class TearOperation : MonoBehaviour
     ///DATA WRAPPER CLASS
     private TearOperationData myData;
     public TearOperationData TOData { get { return myData; } }
-    
-    ///INPUT - EVENT-DRIVEN IMPLEMENTATION
-    private RaindropsAction inputPlayer = null;
 
 
 
