@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using TMPro;
 using System;
 
@@ -59,14 +58,9 @@ public class TearOperation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        //ENABLE INPUT WHEN OBJECT STARTS
-        inputPlayer = new RaindropsAction();
-        inputPlayer.Enable();
-
         //LISTEN TO EVENTS
         UI_RaindropsGame.ResultInput += HandleResultInput;
-        inputPlayer.BaseActionMap.Escape.performed += OnEscapePerformed;
+        UI_RaindropsGame.GameMenuEA += HandleGameMenuEvent;
 
         //LISTENS TO OWN-EVENT FOR HANDLING GOLDEN SOLUTIONS
         TearSolved += HandleGoldenSolution;
@@ -96,14 +90,14 @@ public class TearOperation : MonoBehaviour
     {
         //UN-LISTEN EVENTS
         UI_RaindropsGame.ResultInput -= HandleResultInput;
-        inputPlayer.BaseActionMap.EnterAction.performed -= OnEscapePerformed;
+        UI_RaindropsGame.GameMenuEA -= HandleGameMenuEvent;
         TearSolved -= HandleGoldenSolution;
     }
 
 
 
     //EVENT HANDLING
-    public void HandleResultInput(object sender, ResultInputEventArgs e)
+    private void HandleResultInput(object sender, ResultInputEventArgs e)
     {
         //IF RESULT CORRECT = FIRE SOLUTION EVENT
         if(e.InputValue == this.myData.Result)
@@ -113,12 +107,12 @@ public class TearOperation : MonoBehaviour
         }
     }
 
-    private void OnEscapePerformed(InputAction.CallbackContext value)
+    private void HandleGameMenuEvent(object sender, GameMenuEventArgs e)
     {
-        if(GameController.Instance.IsPlaying)
-            SetVisibleContent();
-        else
+        if(e.EventType == GameMenuEventArgs.EType.GAME_MENU_PAUSE_OPEN)
             SetVisibleContent(false);
+        else
+            SetVisibleContent();
     }
 
     public void HandleGoldenSolution(object sender, TearEventArgs e)
