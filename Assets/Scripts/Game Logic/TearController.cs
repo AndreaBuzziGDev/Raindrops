@@ -151,9 +151,6 @@ public class TearController : MonoSingleton<TearController>
     private void DestroyTear(TearOperation toDestroy)
     {
         Vector3 tearPosition = toDestroy.transform.position;
-        Debug.Log("Destroy Tear at Position: " + tearPosition);
-
-        //TODO: HANDLE AN EFFECT FOR TEAR DESTRUCTION (SPRITE ANIMATION, PARTICLE EFFECT...)
 
         //HANDLING GAME STATS
         lives--;
@@ -169,14 +166,11 @@ public class TearController : MonoSingleton<TearController>
     
     private void SolveTear(TearOperation solvedTear)
     {
-        //TODO: HANDLE AN EFFECT FOR TEAR SOLUTION (SPRITE ANIMATION, PARTICLE EFFECT...)
-
         //HANDLE SCORE
         score += ScoreDifficultyCoefficient * solvedTear.TOData.GetTearScore();
         UI_RaindropsGame.Instance.SetScore(score);
         if(score > existingHighScore)
         {
-            Debug.Log("new highScore: " + score);
             existingHighScore = score;
             SaveGameStats sgs = new(SaveController.defaultGameStatsName, existingHighScore);
             UtilsSave.CreateSave(sgs.FileName, sgs);

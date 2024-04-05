@@ -74,7 +74,6 @@ public class TearOperationData
         return (EOperation) randomInt;
     }
     
-    //TODO: THIS MIGHT BE BETTER IF IMPLEMENTED IN ANOTHER WAY (EG: IN CONSTRUCTOR)
     public static int GetRandomNumberOne(EOperation operation = EOperation.SUM)
     {
         switch (operation)
