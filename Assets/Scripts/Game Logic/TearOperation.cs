@@ -23,6 +23,8 @@ public class TearOperation : MonoBehaviour
     //DATA
     [Header("Tear Settings")]
     [SerializeField] ETearType tearType = ETearType.NORMAL;
+    public ETearType TearType { get { return tearType; } }
+    
     [SerializeField] float trueSpeed = 1.0f;
     float speedDiffCoeff = 1.0f;
 
