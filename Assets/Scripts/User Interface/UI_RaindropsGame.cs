@@ -40,7 +40,7 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
 
     private void OnEnable()
     {
-        //ENABLE INPUT WHEN OBJECT STARTS
+        //ENABLE INPUT WHEN OBJECT ENABLED
         inputPlayer = new RaindropsAction();
         inputPlayer.Enable();
 
