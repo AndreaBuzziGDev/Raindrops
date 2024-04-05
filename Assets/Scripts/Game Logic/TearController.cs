@@ -85,23 +85,7 @@ public class TearController : MonoSingleton<TearController>
     // Update is called once per frame
     void Update()
     {
-        
-        //TODO: COULD THIS PART BE A METHOD?
-        if(spawnIterationCooldown > 0){
-            spawnIterationCooldown -= Time.deltaTime;
-            spawnIterationCooldown = Math.Clamp(spawnIterationCooldown, 0, maxSpawnIterationCooldown);
-        }
-        else
-        {
-            int spawnedItemsIteration = 0;
-            while (spawnedItemsIteration < maxItemsPerSpawnIteration && !IsMaxConcurrentItems)
-            {
-                SpawnTear();
-                spawnedItemsIteration++;
-            }
-        }
-        //
-        
+        TearManagement();
     }
 
     void OnDestroy()
@@ -129,6 +113,25 @@ public class TearController : MonoSingleton<TearController>
 
 
     //FUNCTIONALITIES
+    private void TearManagement()
+    {
+        if(spawnIterationCooldown > 0){
+            spawnIterationCooldown -= Time.deltaTime;
+            spawnIterationCooldown = Math.Clamp(spawnIterationCooldown, 0, maxSpawnIterationCooldown);
+        }
+        else
+        {
+            int spawnedItemsIteration = 0;
+            while (spawnedItemsIteration < maxItemsPerSpawnIteration && !IsMaxConcurrentItems)
+            {
+                SpawnTear();
+                spawnedItemsIteration++;
+            }
+        }
+    }
+
+
+    //TEAR OPERATIONS
     private void SpawnTear()
     {
         //RANDOM GOLD OR NOT
@@ -164,7 +167,6 @@ public class TearController : MonoSingleton<TearController>
         concurrentItems--;
     }
     
-
     private void SolveTear(TearOperation solvedTear)
     {
         //TODO: HANDLE AN EFFECT FOR TEAR SOLUTION (SPRITE ANIMATION, PARTICLE EFFECT...)
@@ -188,7 +190,8 @@ public class TearController : MonoSingleton<TearController>
         concurrentItems--;
     }
 
-
+    
+    //INITIALIZATION
     private void InitializeDifficultyMapping()
     {
         //NB: EVOLVE TO HANDLE MISSING DIFFICULTIES IN SETTINGS?
@@ -210,4 +213,5 @@ public class TearController : MonoSingleton<TearController>
             Debug.LogError("NO DIFFICULTY SETTINGS, DEFAULTING TO 1x FOR EACH DIFFICULTY");
         }
     }
+
 }
