@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using TMPro;
 using System;
 
@@ -56,8 +57,14 @@ public class TearOperation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        //ENABLE INPUT WHEN OBJECT STARTS
+        inputPlayer = new RaindropsAction();
+        inputPlayer.Enable();
+
         //LISTEN TO EVENTS
         UI_RaindropsGame.ResultInput += HandleResultInput;
+        inputPlayer.BaseActionMap.Escape.performed += OnEscapePerformed;
 
         //LISTENS TO OWN-EVENT FOR HANDLING GOLDEN SOLUTIONS
         TearSolved += HandleGoldenSolution;
@@ -79,21 +86,15 @@ public class TearOperation : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //TODO: SHOULD LISTEN FOR ESC PRESS INSTEAD OF SETTING VISIBLE CONTENT OR AN EQUIVALENT?
-        if(GameController.Instance.IsPlaying){
-            SetVisibleContent();
+        if(GameController.Instance.IsPlaying) 
             HandleMovement();
-        }
-        else
-        {
-            SetVisibleContent(false);
-        }
     }
 
     void OnDestroy()
     {
         //UN-LISTEN EVENTS
         UI_RaindropsGame.ResultInput -= HandleResultInput;
+        inputPlayer.BaseActionMap.EnterAction.performed -= OnEscapePerformed;
         TearSolved -= HandleGoldenSolution;
     }
 
@@ -108,6 +109,14 @@ public class TearOperation : MonoBehaviour
             TearEventArgs myTearLostEvent = new(this, TearEventArgs.EType.SUCCESS);
             OnTearSolved(myTearLostEvent);
         }
+    }
+
+    private void OnEscapePerformed(InputAction.CallbackContext value)
+    {
+        if(GameController.Instance.IsPlaying)
+            SetVisibleContent();
+        else
+            SetVisibleContent(false);
     }
 
     public void HandleGoldenSolution(object sender, TearEventArgs e)
