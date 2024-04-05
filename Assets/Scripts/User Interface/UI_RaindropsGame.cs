@@ -124,6 +124,7 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
     //EVENT-FIRING METHOD
     private void OnTearLost(ResultInputEventArgs myEventArg) => ResultInput?.Invoke(this, myEventArg);
     
+    //NB: USAGE OF THIS OUTSIDE OF THIS CLASS IS NOT NECESSARILY GOOD PRACTICE
     public static void OnGamePause(object sender, GameMenuEventArgs myEventArg) => GameMenuEA?.Invoke(sender, myEventArg);
 
 }
