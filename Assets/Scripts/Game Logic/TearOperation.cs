@@ -20,12 +20,17 @@ public class TearOperation : MonoBehaviour
 
 
     //DATA
+    [Header("Tear Settings")]
     [SerializeField] ETearType tearType = ETearType.NORMAL;
     [SerializeField] float trueSpeed = 1.0f;
     float speedDiffCoeff = 1.0f;
-
+    
+    ///DATA WRAPPER CLASS
     private TearOperationData myData;
     public TearOperationData TOData { get { return myData; } }
+    
+    ///INPUT - EVENT-DRIVEN IMPLEMENTATION
+    private RaindropsAction inputPlayer = null;
 
 
 
