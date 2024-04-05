@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7066319e2c228f24483d36d9b9801d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tearSolutionNormal: {fileID: 19800000, guid: 7053868046aa99d449101fdc3844e4ac, type: 3}
+  tearSolutionGold: {fileID: 19800006, guid: 80b8af8e766064d4db1ca1bf1caf8d86, type: 3}
 --- !u!1 &2267109238596743316
 GameObject:
   m_ObjectHideFlags: 0

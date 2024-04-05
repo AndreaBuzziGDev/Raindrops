@@ -31,11 +31,11 @@ public class ParticleOrchestrationController : MonoSingleton<ParticleOrchestrati
 
 
     //FUNCTIONALITIES
-    private void SpawnParticlesAutoDestroy(ParticleSystem toSpawn, string name = "Orchestrated Particle", float duration = 5)
+    private void SpawnParticlesAutoDestroy(ParticleSystem toSpawn, Vector3 position, string name = "Orchestrated Particle", float duration = 5)
     {
-        GameObject go = new GameObject(name);
-        var ps = go.AddComponent<ParticleSystem>();
-        go.SetActive(true);
+        ParticleSystem go = Instantiate(toSpawn);
+        go.transform.position = position;
+
         Destroy(go, duration);
     }
 
@@ -59,7 +59,7 @@ public class ParticleOrchestrationController : MonoSingleton<ParticleOrchestrati
         }
 
         //SPAWN PARTICLES
-        SpawnParticlesAutoDestroy(toSpawn, "Tear Solution Particles");
+        SpawnParticlesAutoDestroy(toSpawn, e.AffectedTear.gameObject.transform.position, "Tear Solution Particles");
     }
     
 
