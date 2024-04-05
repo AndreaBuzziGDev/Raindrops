@@ -8,8 +8,8 @@ public class TearController : MonoSingleton<TearController>
 {
     //DATA
     
-    //TODO: SEPARATE IN SECTIONS IN THE EDITOR THESE THINGS
     //GAMEPLAY SETTINGS
+    [Header("Gameplay Settings")]
     [SerializeField] int maxConcurrentItems = 3;
     [SerializeField] int maxItemsPerSpawnIteration = 1;
     [SerializeField] float maxSpawnIterationCooldown = 1.0f;
@@ -35,6 +35,8 @@ public class TearController : MonoSingleton<TearController>
 
     //DIFFICULTY COEFFICIENTS
     int gameDifficultyValue;
+    
+    [Header("Difficulty Settings")]
     [SerializeField] List<DifficultySettingSO> difficultySettings = new ();
 
     //NB: THESE COULD BE EVOLVED WITH SCRIPTABLEOBJECTS
