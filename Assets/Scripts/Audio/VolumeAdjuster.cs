@@ -15,10 +15,12 @@ public class VolumeAdjuster : MonoBehaviour
     //DATA
     [SerializeField] EVolumeType volumeType = EVolumeType.MUSIC;
     [SerializeField] List<AudioSource> sources = new();
-
+    
+    //LIFECYCLE FUNCTIONS
     // Start is called before the first frame update
     void Start()
     {
+        //NB: THIS SHOULD WORK IN REAL TIME... HANDLE AN EVENT
         float value = GetMatchingPref(volumeType);
         foreach(AudioSource aSource in sources)
         {
