@@ -52,6 +52,7 @@ public class UI_MainOptions : MonoBehaviour
 
 
     //SLIDERS
+    //TODO: THESE REALLY SHOULD DEBOUNCE.
     public void HandleVolumeMusicChange() => UtilsPrefs.Options.SetVolumeMusic(musicVolumeSlider.value);
     public void HandleVolumeSoundFXChange() => UtilsPrefs.Options.SetVolumeEffects(soundFXVolumeSlider.value);
 
