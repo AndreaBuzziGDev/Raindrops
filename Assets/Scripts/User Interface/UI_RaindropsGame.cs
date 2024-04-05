@@ -34,6 +34,8 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
     void Start()
     {
         inputField.text = "0";
+        inputField.Select();
+        inputField.ActivateInputField();
     }
 
     private void OnEnable()
