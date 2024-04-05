@@ -24,17 +24,9 @@ public class TearOperation : MonoBehaviour
     [SerializeField] ETearType tearType = ETearType.NORMAL;
     [SerializeField] float trueSpeed = 1.0f;
     float speedDiffCoeff = 1.0f;
-    
-    ///DATA WRAPPER CLASS
-    private TearOperationData myData;
-    public TearOperationData TOData { get { return myData; } }
-    
-    ///INPUT - EVENT-DRIVEN IMPLEMENTATION
-    private RaindropsAction inputPlayer = null;
-
-
 
     //DEBUG MODE
+    [Header("Debug Settings")]
     [SerializeField] bool debugMode = false;
     [SerializeField] float debugSpeed = 1.0f;
     [SerializeField] bool debugSpeedDifficulty = false;
@@ -42,12 +34,20 @@ public class TearOperation : MonoBehaviour
     [SerializeField] int debugValueBottom = 4;
     [SerializeField] TearOperationData.EOperation debugOperation = 0;
 
-
-
     //PREFAB REFERENCES
+    [Header("Prefab References")]
     [SerializeField] private TMP_Text textNumberOne;
     [SerializeField] private TMP_Text textNumberTwo;
     [SerializeField] private TMP_Text textOperation;
+
+
+    ///DATA WRAPPER CLASS
+    private TearOperationData myData;
+    public TearOperationData TOData { get { return myData; } }
+    
+    ///INPUT - EVENT-DRIVEN IMPLEMENTATION
+    private RaindropsAction inputPlayer = null;
+
 
 
 
