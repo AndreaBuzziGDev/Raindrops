@@ -10,21 +10,19 @@ public static class UtilsSave
     //FUNCTIONALITIES
     public static void CreateSave(string savedFilePath, SaveData save)
     {
-        if(!string.IsNullOrEmpty(savedFilePath))
+        if(string.IsNullOrEmpty(savedFilePath))
+            throw new ArgumentException(String.Format("{0} is null or empty.", savedFilePath), "savedFilePath");
+        else if(save == null)
+            throw new ArgumentException(String.Format("{0} is null.", save), "save");
+        else
         {
             BinaryFormatter bf = new();
             FileStream file = File.Create(Application.persistentDataPath + "/" + savedFilePath + ".save");
             bf.Serialize(file, save);
             file.Close();
         }
-        else
-        {
-            //TODO: THROW ERROR
-            //
-        }
     }
 
-    //TODO: MIGHT NEED TO WORK BASED ON TYPE
     public static SaveData LoadSave(string savedFilePath)
     {
         if (File.Exists(Application.persistentDataPath + "/" + savedFilePath + ".save"))
@@ -42,5 +40,4 @@ public static class UtilsSave
             return null;
         }
     }
-
 }
