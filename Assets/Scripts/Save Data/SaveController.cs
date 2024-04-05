@@ -8,4 +8,7 @@ public static class SaveController
     //PATHS
     public readonly static string defaultGameStatsName = "GameStats";
     public readonly static string gameSpeed = "GameSpeed";
+
+    public readonly static string volumeMusic = "VolumeMusic";
+    public readonly static string volumeSoundFX = "VolumeSoundFX";
 }

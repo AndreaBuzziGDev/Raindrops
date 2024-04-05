@@ -41,11 +41,8 @@ public class UI_MainOptions : MonoBehaviour
         //PRE-LOADING VALUES
         difficultyDropDown.value = UtilsPrefs.GameSettings.GetGameSpeed();
 
-        //TODO: LOAD VALUES FROM PLAYERPREFS ONCE AUDIO SETTINGS HAVE BEEN IMPLEMENTED
-        musicVolumeSlider.value = 1;
-        soundFXVolumeSlider.value = 1;
-
-        Debug.Log("RefreshView");
+        musicVolumeSlider.value = UtilsPrefs.Options.GetVolumeMusic();
+        soundFXVolumeSlider.value = UtilsPrefs.Options.GetVolumeEffects();
     }
 
 
@@ -55,7 +52,8 @@ public class UI_MainOptions : MonoBehaviour
 
 
     //SLIDERS
-
+    public void HandleVolumeMusicChange() => UtilsPrefs.Options.SetVolumeMusic(musicVolumeSlider.value);
+    public void HandleVolumeSoundFXChange() => UtilsPrefs.Options.SetVolumeEffects(soundFXVolumeSlider.value);
 
 
     //BUTTONS

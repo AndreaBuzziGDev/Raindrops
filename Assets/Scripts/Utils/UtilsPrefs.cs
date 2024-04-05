@@ -7,17 +7,21 @@ public static class UtilsPrefs
 {
     public static class Options
     {
-        public static void SetVolumeMusic(float value)
+        //NB: IMPLEMENT DEBOUNCE FOR THESE
+        public static void SetVolumeMusic(float value) => PlayerPrefs.SetFloat(SaveController.volumeMusic, value);
+        public static float GetVolumeMusic()
         {
-            //TODO: EVENTUALLY IMPLEMENT THIS
-
+            return PlayerPrefs.GetFloat(SaveController.volumeMusic) == 0 ? 2 : PlayerPrefs.GetFloat(SaveController.volumeMusic);
         }
 
-        public static void SetVolumeEffects(float value)
-        {
-            //TODO: EVENTUALLY IMPLEMENT THIS
 
+        public static void SetVolumeEffects(float value) => PlayerPrefs.SetFloat(SaveController.volumeSoundFX, value);
+        public static float GetVolumeEffects()
+        {
+            return PlayerPrefs.GetFloat(SaveController.volumeSoundFX) == 0 ? 2 : PlayerPrefs.GetFloat(SaveController.volumeSoundFX);
         }
+
+
 
     }
 
