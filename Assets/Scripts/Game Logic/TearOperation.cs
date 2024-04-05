@@ -122,7 +122,7 @@ public class TearOperation : MonoBehaviour
     public void HandleGoldenSolution(object sender, TearEventArgs e)
     {
         //GOLD TEARS DON'T EXPLODE FOR GOLD TEARS
-        if(tearType != ETearType.GOLD && e.LostTear.tearType == ETearType.GOLD)
+        if(tearType != ETearType.GOLD && e.AffectedTear.tearType == ETearType.GOLD)
         {
             TearEventArgs myTearLostEvent = new(this, TearEventArgs.EType.SUCCESS);
             OnTearSolved(myTearLostEvent);

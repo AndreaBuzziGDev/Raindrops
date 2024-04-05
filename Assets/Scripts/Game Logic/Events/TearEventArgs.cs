@@ -15,8 +15,8 @@ public class TearEventArgs : EventArgs
 
     //DATA
     //TODO: CHANGE VARIABLE NAME TO affectedTear OR SOMETHING
-    private TearOperation lostTear;
-    public TearOperation LostTear { get { return lostTear; } }
+    private TearOperation affectedTear;
+    public TearOperation AffectedTear { get { return affectedTear; } }
 
 
     private EType eventType = EType.LOSS;
@@ -28,7 +28,7 @@ public class TearEventArgs : EventArgs
     //CONSTRUCTOR
     public TearEventArgs (TearOperation tear, EType eventType = EType.LOSS)
     {
-        this.lostTear = tear;
+        this.affectedTear = tear;
         this.eventType = eventType;
     }
 

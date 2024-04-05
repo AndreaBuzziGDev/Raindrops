@@ -102,10 +102,10 @@ public class TearController : MonoSingleton<TearController>
     private void HandleTearEvent(object sender, TearEventArgs e)
     {
         //LOSS
-        if(e.EventType == TearEventArgs.EType.LOSS) DestroyTear(e.LostTear);
+        if(e.EventType == TearEventArgs.EType.LOSS) DestroyTear(e.AffectedTear);
 
         //SUCCESS
-        if(e.EventType == TearEventArgs.EType.SUCCESS) SolveTear(e.LostTear);
+        if(e.EventType == TearEventArgs.EType.SUCCESS) SolveTear(e.AffectedTear);
 
     }
 
