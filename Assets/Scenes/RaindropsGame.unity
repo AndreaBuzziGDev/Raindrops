@@ -392,14 +392,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameController
       objectReference: {fileID: 0}
-    - target: {fileID: 9036493674170390027, guid: d3e85f92be613944799e1374042332fd, type: 3}
-      propertyPath: tearSolutionGold
-      value: 
-      objectReference: {fileID: 19800006, guid: 80b8af8e766064d4db1ca1bf1caf8d86, type: 3}
-    - target: {fileID: 9036493674170390027, guid: d3e85f92be613944799e1374042332fd, type: 3}
-      propertyPath: tearSolutionNormal
-      value: 
-      objectReference: {fileID: 19800000, guid: 7053868046aa99d449101fdc3844e4ac, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
