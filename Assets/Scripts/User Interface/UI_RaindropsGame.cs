@@ -92,7 +92,6 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
     {
         if(GameController.Instance.IsPlaying)
             DoBroadcastResult();
-        //TODO: RE-FOCUS CURSOR ON INPUT FIELD
     }
 
     private void OnEscapePerformed(InputAction.CallbackContext value)
