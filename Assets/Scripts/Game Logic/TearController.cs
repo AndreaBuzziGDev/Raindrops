@@ -52,6 +52,10 @@ public class TearController : MonoSingleton<TearController>
     [SerializeField] TearOperation goldOpPrefab;
 
 
+    //EVENTS
+    public static event EventHandler<HighScoreEventArgs> OnNewHighScore;
+
+
 
 
 
@@ -174,8 +178,10 @@ public class TearController : MonoSingleton<TearController>
             existingHighScore = score;
             SaveGameStats sgs = new(SaveController.defaultGameStatsName, existingHighScore);
             UtilsSave.CreateSave(sgs.FileName, sgs);
-            //NB: MARK ON UI SO THAT NEW HIGH SCORE IS KNOWN
-            //...
+            
+            //
+            HighScoreEventArgs myEventArg = new ((int) existingHighScore);
+            OnTearLost(myEventArg);
         }
 
         //DESTROY
@@ -206,5 +212,9 @@ public class TearController : MonoSingleton<TearController>
             Debug.LogError("NO DIFFICULTY SETTINGS, DEFAULTING TO 1x FOR EACH DIFFICULTY");
         }
     }
+
+
+    //EVENT-FIRING METHOD
+    private void OnTearLost(HighScoreEventArgs myEventArg) => OnNewHighScore?.Invoke(this, myEventArg);
 
 }
