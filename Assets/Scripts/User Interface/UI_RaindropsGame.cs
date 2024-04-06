@@ -50,6 +50,8 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
         //ESCAPE
         inputPlayer.BaseActionMap.Escape.performed += OnEscapePerformed;
 
+        //NEW HIGHSCORE
+        TearController.OnNewHighScore += HandleNewHighScore;
     }
 
     private void OnDisable()
@@ -62,6 +64,9 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
 
         //DISABLE INPUT WHEN OBJECT DISABLED
         inputPlayer.Disable();
+
+        //NEW HIGHSCORE
+        TearController.OnNewHighScore -= HandleNewHighScore;
     }
 
 
@@ -101,6 +106,14 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
         else if(!GameController.Instance.IsGameOver)
             GameController.Instance.SetState(GameController.EGameState.Playing);
     }
+
+    //HIGHSCORE
+    private void HandleNewHighScore(object sender, HighScoreEventArgs e)
+    {
+        //TODO: IMPLEMENT
+    }
+
+
 
 
     //UI - BUTTON HANDLING
