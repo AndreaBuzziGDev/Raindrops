@@ -48,6 +48,7 @@ public class TearController : MonoSingleton<TearController>
 
 
     //PREFABS
+    [Header("Prefab Links")]
     [SerializeField] TearOperation tearOpPrefab;
     [SerializeField] TearOperation goldOpPrefab;
 
