@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using TMPro;
 using System;
 
@@ -21,6 +22,11 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
 
 
     //PREFAB REFERENCES
+    [Header("UI Parametrization")]
+    [SerializeField] Color highScoreColor = new (255, 215, 0);
+
+    [Header("UI Items References")]
+    [SerializeField] private Image scorePanelImage;
     [SerializeField] private TMP_InputField inputField;
     [SerializeField] private TMP_Text textScore;
     [SerializeField] private TMP_Text textLives;
@@ -108,10 +114,7 @@ public class UI_RaindropsGame : MonoSingleton<UI_RaindropsGame>
     }
 
     //HIGHSCORE
-    private void HandleNewHighScore(object sender, HighScoreEventArgs e)
-    {
-        //TODO: IMPLEMENT
-    }
+    private void HandleNewHighScore(object sender, HighScoreEventArgs e) => scorePanelImage.color = highScoreColor;
 
 
 
