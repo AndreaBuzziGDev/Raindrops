@@ -2639,6 +2639,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenuPanel: {fileID: 1840896375966235368}
+  textHighScore: {fileID: 1594029939313757905}
 --- !u!1 &3756929485553054527
 GameObject:
   m_ObjectHideFlags: 0

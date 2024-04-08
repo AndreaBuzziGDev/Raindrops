@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class UI_MainMenu : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class UI_MainMenu : MonoBehaviour
 
     //GAMEOBJECT REFERENCES
     [SerializeField] Canvas mainMenuPanel;
+    [SerializeField] private TMP_Text textHighScore;
     
 
 
@@ -19,6 +21,10 @@ public class UI_MainMenu : MonoBehaviour
     {
         //LISTEN EVENTS
         UI_RaindropsMainMenu.MainMenuEA += HandleMainMenuEvent;
+        
+        //INITIALIZE GAME SCORE
+        SaveGameStats sgs = (SaveGameStats) UtilsSave.LoadSave(SaveController.defaultGameStatsName);
+        textHighScore.text = (sgs==null ? 0 : sgs.HighScore).ToString();
     }
     void OnDestroy()
     {
