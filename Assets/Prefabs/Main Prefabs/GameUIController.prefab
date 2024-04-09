@@ -369,7 +369,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1292169047637020008, guid: 225cc513c14b9f54e97ec779c5ca9580, type: 3}
-      insertIndex: -1
+      insertIndex: 1
       addedObject: {fileID: 7373135165380655717}
   m_SourcePrefab: {fileID: 100100000, guid: 225cc513c14b9f54e97ec779c5ca9580, type: 3}
 --- !u!114 &1270473042176773777 stripped
@@ -411,6 +411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65d9db30f726d2f42a58144e8e3ace09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shakeDurationMax: 0.35
+  shakeHeight: 5
+  shakeSpeed: 50
 --- !u!114 &7414170172193653891 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2641559421215441166, guid: 225cc513c14b9f54e97ec779c5ca9580, type: 3}
