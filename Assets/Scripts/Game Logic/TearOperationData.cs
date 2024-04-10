@@ -88,11 +88,11 @@ public class TearOperationData
         switch (operation)
         {
             case EOperation.SUM:
-                return UnityEngine.Random.Range(0, 10);
+                return UnityEngine.Random.Range(1, 10);
             case EOperation.DIFFERENCE:
-                return UnityEngine.Random.Range(0, 10);
+                return UnityEngine.Random.Range(1, 10);
             case EOperation.MULTIPLICATION:
-                return UnityEngine.Random.Range(0, 10);
+                return UnityEngine.Random.Range(1, 10);
             case EOperation.DIVISION:
                 return UnityEngine.Random.Range(1, 10);
             default:
@@ -111,7 +111,7 @@ public class TearOperationData
             case EOperation.DIFFERENCE:
                 return UnityEngine.Random.Range(0, 10);
             case EOperation.MULTIPLICATION:
-                return UnityEngine.Random.Range(0, 10);
+                return UnityEngine.Random.Range(2, 10);
             case EOperation.DIVISION:
                 return UnityEngine.Random.Range(1, 10);
             default:
