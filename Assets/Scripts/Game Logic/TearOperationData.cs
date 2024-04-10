@@ -70,32 +70,44 @@ public class TearOperationData
     //RANDOMIZATION
     public static EOperation GetRandomOperation()
     {
-        int randomInt = UnityEngine.Random.Range(0, EOperation.GetNames(typeof(EOperation)).Length);
-        return (EOperation) randomInt;
+        return (EOperation) UnityEngine.Random.Range(0, EOperation.GetNames(typeof(EOperation)).Length);
     }
     
     public static int GetRandomNumberOne(EOperation operation = EOperation.SUM)
     {
         switch (operation)
-            {
-                case EOperation.SUM:
-                    return UnityEngine.Random.Range(0, 10);
-                case EOperation.DIFFERENCE:
-                    return UnityEngine.Random.Range(0, 10);
-                case EOperation.MULTIPLICATION:
-                    return UnityEngine.Random.Range(0, 10);
-                case EOperation.DIVISION:
-                    return UnityEngine.Random.Range(1, 10);
-                default:
-                    Debug.LogError("Invalid operation value has been provided");
-                    return 0;
-            }
+        {
+            case EOperation.SUM:
+                return UnityEngine.Random.Range(0, 10);
+            case EOperation.DIFFERENCE:
+                return UnityEngine.Random.Range(0, 10);
+            case EOperation.MULTIPLICATION:
+                return UnityEngine.Random.Range(0, 10);
+            case EOperation.DIVISION:
+                return UnityEngine.Random.Range(1, 10);
+            default:
+                Debug.LogError("Invalid operation value has been provided");
+                return 0;
+        }
     }
 
     //TODO: IMPROVE AND EXPAND UPON
     public static int GetRandomNumberTwo(EOperation operation = EOperation.SUM)
     {
-        return GetRandomNumberOne(operation);
+        switch (operation)
+        {
+            case EOperation.SUM:
+                return UnityEngine.Random.Range(0, 10);
+            case EOperation.DIFFERENCE:
+                return UnityEngine.Random.Range(0, 10);
+            case EOperation.MULTIPLICATION:
+                return UnityEngine.Random.Range(0, 10);
+            case EOperation.DIVISION:
+                return UnityEngine.Random.Range(1, 10);
+            default:
+                Debug.LogError("Invalid operation value has been provided");
+                return 0;
+        }
     }
 
     //NB: THIS CANNOT BE EASILY SET FROM A SCRIPTABLE OBJECT BECAUSE THIS IS NOT MONOBEHAVIOUR. NEEDS SOME "WIRING" TO WORK.
