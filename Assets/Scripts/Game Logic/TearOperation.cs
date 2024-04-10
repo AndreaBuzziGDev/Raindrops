@@ -67,7 +67,7 @@ public class TearOperation : MonoBehaviour
         if(debugMode)
             myData = new TearOperationData(debugValueTop, debugValueBottom, debugOperation);
         else
-            myData = new TearOperationData(TearOperationData.GetRandomNumberOne(randomOp), TearOperationData.GetRandomNumberOne(randomOp), randomOp);
+            myData = new TearOperationData(TearOperationData.GetRandomNumberOne(randomOp), TearOperationData.GetRandomNumberTwo(randomOp), randomOp);
         
         //DIFFICULTY SETTING
         speedDiffCoeff = TearController.Instance.SpeedDifficultyValue;

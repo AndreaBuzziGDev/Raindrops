@@ -60,9 +60,19 @@ public class TearOperationData
 
     //CONSTRUCTOR
     public TearOperationData(int numberOne = 1, int numberTwo = 1, EOperation operation = EOperation.SUM){
-        numberOneValue = numberOne;
-        numberTwoValue = numberTwo;
+
         this.operation = operation;
+        switch(operation)
+        {
+            case EOperation.DIVISION:
+                numberOneValue = numberOne * numberTwo;
+                numberTwoValue = numberTwo;
+                break;
+            default:
+                numberOneValue = numberOne;
+                numberTwoValue = numberTwo;
+                break;
+        }
     }
 
 
