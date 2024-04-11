@@ -21,6 +21,8 @@ public class VolumeAdjuster : MonoBehaviour
     void Start()
     {
         //NB: THIS SHOULD WORK IN REAL TIME... HANDLE AN EVENT
+        UI_MainOptions.VolumeChanged += HandleVolumeChangeEvent;
+
         float value = GetMatchingPref(volumeType);
         foreach(AudioSource aSource in sources)
         {
@@ -37,6 +39,17 @@ public class VolumeAdjuster : MonoBehaviour
                 return UtilsPrefs.Options.GetVolumeMusic();
             default:
                 return UtilsPrefs.Options.GetVolumeEffects();
+        }
+    }
+
+    //EVENT HANDLING
+    private void HandleVolumeChangeEvent(object sender, VolumeChangeEventArgs e)
+    {
+        //TODO: COMMON FACTOR WITH START
+        float value = GetMatchingPref(volumeType);
+        foreach(AudioSource aSource in sources)
+        {
+            aSource.volume = value-1;
         }
     }
 
