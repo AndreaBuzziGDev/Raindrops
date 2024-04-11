@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class VolumeAdjuster : MonoBehaviour
@@ -28,6 +29,11 @@ public class VolumeAdjuster : MonoBehaviour
         {
             aSource.volume = value-1;
         }
+    }
+
+    void OnDestroy()
+    {
+        UI_MainOptions.VolumeChanged -= HandleVolumeChangeEvent;
     }
 
     //FUNCTIONALITIES
